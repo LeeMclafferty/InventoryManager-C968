@@ -15,3 +15,23 @@ D:\Code\Software I – C# - C968\obj\Debug\net6.0-windows\refint\Software I – 
 D:\Code\Software I – C# - C968\obj\Debug\net6.0-windows\Software I – C# - C968.pdb
 D:\Code\Software I – C# - C968\obj\Debug\net6.0-windows\Software I – C# - C968.genruntimeconfig.cache
 D:\Code\Software I – C# - C968\obj\Debug\net6.0-windows\ref\Software I – C# - C968.dll
+C:\Users\lmclafferty\Documents\InventoryManager-C968\bin\Debug\net6.0-windows\Software I – C# - C968.exe
+C:\Users\lmclafferty\Documents\InventoryManager-C968\bin\Debug\net6.0-windows\Software I – C# - C968.deps.json
+C:\Users\lmclafferty\Documents\InventoryManager-C968\bin\Debug\net6.0-windows\Software I – C# - C968.runtimeconfig.json
+C:\Users\lmclafferty\Documents\InventoryManager-C968\bin\Debug\net6.0-windows\Software I – C# - C968.dll
+C:\Users\lmclafferty\Documents\InventoryManager-C968\bin\Debug\net6.0-windows\Software I – C# - C968.pdb
+C:\Users\lmclafferty\Documents\InventoryManager-C968\obj\Debug\net6.0-windows\Software I – C# - C968.csproj.AssemblyReference.cache
+C:\Users\lmclafferty\Documents\InventoryManager-C968\obj\Debug\net6.0-windows\Software_I___C____C968.AddPart.resources
+C:\Users\lmclafferty\Documents\InventoryManager-C968\obj\Debug\net6.0-windows\Software_I___C____C968.AddPartsMod.resources
+C:\Users\lmclafferty\Documents\InventoryManager-C968\obj\Debug\net6.0-windows\Software_I___C____C968.Form1.resources
+C:\Users\lmclafferty\Documents\InventoryManager-C968\obj\Debug\net6.0-windows\Software I – C# - C968.csproj.GenerateResource.cache
+C:\Users\lmclafferty\Documents\InventoryManager-C968\obj\Debug\net6.0-windows\Software I – C# - C968.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lmclafferty\Documents\InventoryManager-C968\obj\Debug\net6.0-windows\Software I – C# - C968.AssemblyInfoInputs.cache
+C:\Users\lmclafferty\Documents\InventoryManager-C968\obj\Debug\net6.0-windows\Software I – C# - C968.AssemblyInfo.cs
+C:\Users\lmclafferty\Documents\InventoryManager-C968\obj\Debug\net6.0-windows\Software I – C# - C968.csproj.CoreCompileInputs.cache
+C:\Users\lmclafferty\Documents\InventoryManager-C968\obj\Debug\net6.0-windows\Software I – C# - C968.dll
+C:\Users\lmclafferty\Documents\InventoryManager-C968\obj\Debug\net6.0-windows\refint\Software I – C# - C968.dll
+C:\Users\lmclafferty\Documents\InventoryManager-C968\obj\Debug\net6.0-windows\Software I – C# - C968.pdb
+C:\Users\lmclafferty\Documents\InventoryManager-C968\obj\Debug\net6.0-windows\Software I – C# - C968.genruntimeconfig.cache
+C:\Users\lmclafferty\Documents\InventoryManager-C968\obj\Debug\net6.0-windows\ref\Software I – C# - C968.dll
+C:\Users\lmclafferty\Documents\InventoryManager-C968\obj\Debug\net6.0-windows\Software_I___C____C968.Product.resources
