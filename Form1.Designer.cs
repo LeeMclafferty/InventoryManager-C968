@@ -44,9 +44,9 @@
             LblPartsTitle = new Label();
             LblProducts = new Label();
             DgvParts = new DataGridView();
-            DvgProducts = new DataGridView();
+            DgvProducts = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)DgvParts).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)DvgProducts).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DgvProducts).BeginInit();
             SuspendLayout();
             // 
             // BtnAddParts
@@ -213,22 +213,22 @@
             DgvParts.Size = new Size(926, 420);
             DgvParts.TabIndex = 17;
             // 
-            // DvgProducts
+            // DgvProducts
             // 
-            DvgProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DvgProducts.Location = new Point(1015, 206);
-            DvgProducts.Name = "DvgProducts";
-            DvgProducts.RowHeadersWidth = 82;
-            DvgProducts.RowTemplate.Height = 41;
-            DvgProducts.Size = new Size(926, 420);
-            DvgProducts.TabIndex = 18;
+            DgvProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DgvProducts.Location = new Point(1015, 206);
+            DgvProducts.Name = "DgvProducts";
+            DgvProducts.RowHeadersWidth = 82;
+            DgvProducts.RowTemplate.Height = 41;
+            DgvProducts.Size = new Size(926, 420);
+            DgvProducts.TabIndex = 18;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1988, 860);
-            Controls.Add(DvgProducts);
+            Controls.Add(DgvProducts);
             Controls.Add(DgvParts);
             Controls.Add(LblProducts);
             Controls.Add(LblPartsTitle);
@@ -248,8 +248,9 @@
             Margin = new Padding(4);
             Name = "Form1";
             Text = "Main Screen";
+            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)DgvParts).EndInit();
-            ((System.ComponentModel.ISupportInitialize)DvgProducts).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DgvProducts).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -272,6 +273,6 @@
         private Label LblPartsTitle;
         private Label LblProducts;
         private DataGridView DgvParts;
-        private DataGridView DvgProducts;
+        private DataGridView DgvProducts;
     }
 }
