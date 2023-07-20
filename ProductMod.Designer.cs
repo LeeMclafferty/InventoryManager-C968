@@ -293,7 +293,7 @@
             Controls.Add(BtnDelete);
             Controls.Add(BtnAdd);
             Name = "ProductMod";
-            Text = "ProductMod";
+            Text = "Product";
             ((System.ComponentModel.ISupportInitialize)GvCandidateParts).EndInit();
             ((System.ComponentModel.ISupportInitialize)GvPartsAssociated).EndInit();
             ResumeLayout(false);
