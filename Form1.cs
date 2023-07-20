@@ -11,5 +11,10 @@ namespace Software_I___C____C968
         {
 
         }
+
+        private void BtnSearchParts_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
