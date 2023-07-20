@@ -212,7 +212,7 @@
             Controls.Add(BtnModifyParts);
             Controls.Add(BtnAddParts);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Main Screen";
             ResumeLayout(false);
             PerformLayout();
         }
