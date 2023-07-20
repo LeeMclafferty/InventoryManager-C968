@@ -1,0 +1,17 @@
+D:\Code\Software I – C# - C968\obj\Debug\net6.0-windows\Software I – C# - C968.csproj.AssemblyReference.cache
+D:\Code\Software I – C# - C968\obj\Debug\net6.0-windows\Software_I___C____C968.Form1.resources
+D:\Code\Software I – C# - C968\obj\Debug\net6.0-windows\Software I – C# - C968.csproj.GenerateResource.cache
+D:\Code\Software I – C# - C968\obj\Debug\net6.0-windows\Software I – C# - C968.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code\Software I – C# - C968\obj\Debug\net6.0-windows\Software I – C# - C968.AssemblyInfoInputs.cache
+D:\Code\Software I – C# - C968\obj\Debug\net6.0-windows\Software I – C# - C968.AssemblyInfo.cs
+D:\Code\Software I – C# - C968\obj\Debug\net6.0-windows\Software I – C# - C968.csproj.CoreCompileInputs.cache
+D:\Code\Software I – C# - C968\bin\Debug\net6.0-windows\Software I – C# - C968.exe
+D:\Code\Software I – C# - C968\bin\Debug\net6.0-windows\Software I – C# - C968.deps.json
+D:\Code\Software I – C# - C968\bin\Debug\net6.0-windows\Software I – C# - C968.runtimeconfig.json
+D:\Code\Software I – C# - C968\bin\Debug\net6.0-windows\Software I – C# - C968.dll
+D:\Code\Software I – C# - C968\bin\Debug\net6.0-windows\Software I – C# - C968.pdb
+D:\Code\Software I – C# - C968\obj\Debug\net6.0-windows\Software I – C# - C968.dll
+D:\Code\Software I – C# - C968\obj\Debug\net6.0-windows\refint\Software I – C# - C968.dll
+D:\Code\Software I – C# - C968\obj\Debug\net6.0-windows\Software I – C# - C968.pdb
+D:\Code\Software I – C# - C968\obj\Debug\net6.0-windows\Software I – C# - C968.genruntimeconfig.cache
+D:\Code\Software I – C# - C968\obj\Debug\net6.0-windows\ref\Software I – C# - C968.dll

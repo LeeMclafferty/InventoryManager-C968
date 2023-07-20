@@ -6,5 +6,10 @@ namespace Software_I___C____C968
         {
             InitializeComponent();
         }
+
+        private void LblProducts_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
