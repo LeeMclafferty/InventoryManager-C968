@@ -145,6 +145,7 @@
             BtnSearchProducts.TabIndex = 11;
             BtnSearchProducts.Text = "Search";
             BtnSearchProducts.UseVisualStyleBackColor = true;
+            BtnSearchProducts.Click += BtnSearchProducts_Click;
             // 
             // TbProductsSearch
             // 

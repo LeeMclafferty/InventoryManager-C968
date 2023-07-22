@@ -7,18 +7,45 @@ namespace Software_I___C____C968
     public partial class Form1 : Form
     {
 
-        public List<Part> parts { get; set; }
-        public List<Product> products { get; set; }
+        public List<Part> allParts { get; set; }
+        public List<Product> allProducts { get; set; }
+
+        public List<Part> boundPartsData { get; set; }
+        public List<Product> boundProductData { get; set; }
         public Form1()
         {
             InitializeComponent();
-            parts = InitializeParts();
-            products = InitializeProducts();
+            allParts = InitializeParts();
+            allProducts = InitializeProducts();
+            boundPartsData = new List<Part>(allParts);
+            boundProductData = new List<Product>(allProducts);
         }
 
         private void BtnSearchParts_Click(object sender, EventArgs e)
         {
+            string searchText = TbPartsSearch.Text.ToLower();
+            boundPartsData.Clear();
 
+            if (searchText == "")
+            {
+                foreach (Part part in allParts)
+                {
+                    boundPartsData.Add(part);
+                }
+            }
+            else
+            {
+                foreach (Part part in allParts)
+                {
+                    if (part.name.ToLower().Contains(searchText))
+                    {
+                        boundPartsData.Add(part);
+                    }
+                }
+            }
+
+            DgvParts.DataSource = null;
+            DgvParts.DataSource = boundPartsData;
         }
 
         private void BtnAddParts_Click(object sender, EventArgs e)
@@ -131,8 +158,8 @@ namespace Software_I___C____C968
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            DgvParts.DataSource = parts;
-            DgvProducts.DataSource = products;
+            DgvParts.DataSource = boundPartsData;
+            DgvProducts.DataSource = boundProductData;
             SetupHeaders();
         }
 
@@ -162,11 +189,11 @@ namespace Software_I___C____C968
                 if (DgvParts.SelectedRows.Count > 0) // Ensure a row is selected
                 {
                     int selectedRowIndex = DgvParts.SelectedRows[0].Index;
-                    parts.RemoveAt(selectedRowIndex);
+                    boundPartsData.RemoveAt(selectedRowIndex);
 
                     /* Refresh Data */
                     DgvParts.DataSource = null;
-                    DgvParts.DataSource = parts;
+                    DgvParts.DataSource = boundPartsData;
                 }
             }
             catch (Exception ex)
@@ -182,17 +209,44 @@ namespace Software_I___C____C968
                 if (DgvProducts.SelectedRows.Count > 0) // Ensure a row is selected
                 {
                     int selectedRowIndex = DgvProducts.SelectedRows[0].Index;
-                    products.RemoveAt(selectedRowIndex);
+                    boundProductData.RemoveAt(selectedRowIndex);
 
                     /* Refresh Data */
                     DgvProducts.DataSource = null;
-                    DgvProducts.DataSource = products;
+                    DgvProducts.DataSource = boundProductData;
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Part Deletion Error: " + ex.Message);
             }
+        }
+
+        private void BtnSearchProducts_Click(object sender, EventArgs e)
+        {
+            string searchText = TbProductsSearch.Text.ToLower();
+            boundProductData.Clear();
+
+            if (searchText == "")
+            {
+                foreach (Product product in allProducts)
+                {
+                    boundProductData.Add(product);
+                }
+            }
+            else
+            {
+                foreach (Product product in allProducts)
+                {
+                    if (product.name.ToLower().Contains(searchText))
+                    {
+                        boundProductData.Add(product);
+                    }
+                }
+            }
+
+            DgvProducts.DataSource = null;
+            DgvProducts.DataSource = boundProductData;
         }
     }
 }
