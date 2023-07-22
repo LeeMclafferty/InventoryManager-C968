@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            RbInHouse = new RadioButton();
             RbOutsourced = new RadioButton();
             BtnSave = new Button();
             BtnCancel = new Button();
@@ -47,136 +46,114 @@
             LblMax = new Label();
             LblMin = new Label();
             LblMachineId = new Label();
+            RbInHouse = new RadioButton();
             SuspendLayout();
-            // 
-            // RbInHouse
-            // 
-            RbInHouse.AutoSize = true;
-            RbInHouse.Location = new Point(199, 31);
-            RbInHouse.Margin = new Padding(4, 4, 4, 4);
-            RbInHouse.Name = "RbInHouse";
-            RbInHouse.Size = new Size(143, 36);
-            RbInHouse.TabIndex = 0;
-            RbInHouse.TabStop = true;
-            RbInHouse.Text = "In-House";
-            RbInHouse.UseVisualStyleBackColor = true;
             // 
             // RbOutsourced
             // 
             RbOutsourced.AutoSize = true;
-            RbOutsourced.Location = new Point(370, 31);
-            RbOutsourced.Margin = new Padding(4, 4, 4, 4);
+            RbOutsourced.Location = new Point(290, 28);
             RbOutsourced.Name = "RbOutsourced";
-            RbOutsourced.Size = new Size(169, 36);
+            RbOutsourced.Size = new Size(130, 29);
             RbOutsourced.TabIndex = 1;
-            RbOutsourced.TabStop = true;
             RbOutsourced.Text = "Outsourced";
             RbOutsourced.UseVisualStyleBackColor = true;
+            RbOutsourced.CheckedChanged += RbOutsourced_CheckedChanged;
             // 
             // BtnSave
             // 
-            BtnSave.Location = new Point(369, 570);
-            BtnSave.Margin = new Padding(4, 4, 4, 4);
+            BtnSave.Location = new Point(289, 449);
             BtnSave.Name = "BtnSave";
-            BtnSave.Size = new Size(146, 44);
+            BtnSave.Size = new Size(112, 34);
             BtnSave.TabIndex = 2;
             BtnSave.Text = "Save";
             BtnSave.UseVisualStyleBackColor = true;
+            BtnSave.Click += BtnSave_Click;
             // 
             // BtnCancel
             // 
-            BtnCancel.Location = new Point(543, 570);
-            BtnCancel.Margin = new Padding(4, 4, 4, 4);
+            BtnCancel.Location = new Point(423, 449);
             BtnCancel.Name = "BtnCancel";
-            BtnCancel.Size = new Size(146, 44);
+            BtnCancel.Size = new Size(112, 34);
             BtnCancel.TabIndex = 3;
             BtnCancel.Text = "Cancel";
             BtnCancel.UseVisualStyleBackColor = true;
+            BtnCancel.Click += BtnCancel_Click;
             // 
             // TbId
             // 
-            TbId.Location = new Point(231, 138);
-            TbId.Margin = new Padding(4, 4, 4, 4);
+            TbId.Location = new Point(183, 112);
             TbId.Name = "TbId";
-            TbId.Size = new Size(259, 39);
+            TbId.Size = new Size(200, 31);
             TbId.TabIndex = 4;
             // 
             // TbName
             // 
-            TbName.Location = new Point(231, 206);
-            TbName.Margin = new Padding(4, 4, 4, 4);
+            TbName.Location = new Point(183, 165);
             TbName.Name = "TbName";
-            TbName.Size = new Size(259, 39);
+            TbName.Size = new Size(200, 31);
             TbName.TabIndex = 5;
             // 
             // TbInventory
             // 
-            TbInventory.Location = new Point(231, 274);
-            TbInventory.Margin = new Padding(4, 4, 4, 4);
+            TbInventory.Location = new Point(183, 218);
             TbInventory.Name = "TbInventory";
-            TbInventory.Size = new Size(259, 39);
+            TbInventory.Size = new Size(200, 31);
             TbInventory.TabIndex = 6;
             // 
             // TbPriceCost
             // 
-            TbPriceCost.Location = new Point(231, 342);
-            TbPriceCost.Margin = new Padding(4, 4, 4, 4);
+            TbPriceCost.Location = new Point(183, 271);
             TbPriceCost.Name = "TbPriceCost";
-            TbPriceCost.Size = new Size(259, 39);
+            TbPriceCost.Size = new Size(200, 31);
             TbPriceCost.TabIndex = 7;
             // 
             // TbMax
             // 
-            TbMax.Location = new Point(229, 410);
-            TbMax.Margin = new Padding(4, 4, 4, 4);
+            TbMax.Location = new Point(181, 324);
             TbMax.Name = "TbMax";
-            TbMax.Size = new Size(129, 39);
+            TbMax.Size = new Size(100, 31);
             TbMax.TabIndex = 9;
             // 
             // TbMachineId
             // 
-            TbMachineId.Location = new Point(231, 477);
-            TbMachineId.Margin = new Padding(4, 4, 4, 4);
+            TbMachineId.Location = new Point(183, 376);
             TbMachineId.Name = "TbMachineId";
-            TbMachineId.Size = new Size(259, 39);
+            TbMachineId.Size = new Size(200, 31);
             TbMachineId.TabIndex = 10;
             // 
             // TbMin
             // 
-            TbMin.Location = new Point(510, 410);
-            TbMin.Margin = new Padding(4, 4, 4, 4);
+            TbMin.Location = new Point(397, 324);
             TbMin.Name = "TbMin";
-            TbMin.Size = new Size(129, 39);
+            TbMin.Size = new Size(100, 31);
             TbMin.TabIndex = 11;
             // 
             // LblAddPart
             // 
             LblAddPart.AutoSize = true;
             LblAddPart.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            LblAddPart.Location = new Point(25, 29);
-            LblAddPart.Margin = new Padding(4, 0, 4, 0);
+            LblAddPart.Location = new Point(24, 27);
             LblAddPart.Name = "LblAddPart";
-            LblAddPart.Size = new Size(119, 37);
+            LblAddPart.Size = new Size(88, 28);
             LblAddPart.TabIndex = 12;
             LblAddPart.Text = "Add Part";
             // 
             // LblId
             // 
             LblId.AutoSize = true;
-            LblId.Location = new Point(173, 142);
-            LblId.Margin = new Padding(4, 0, 4, 0);
+            LblId.Location = new Point(138, 115);
             LblId.Name = "LblId";
-            LblId.Size = new Size(37, 32);
+            LblId.Size = new Size(30, 25);
             LblId.TabIndex = 13;
             LblId.Text = "ID";
             // 
             // LblName
             // 
             LblName.AutoSize = true;
-            LblName.Location = new Point(135, 210);
-            LblName.Margin = new Padding(4, 0, 4, 0);
+            LblName.Location = new Point(109, 168);
             LblName.Name = "LblName";
-            LblName.Size = new Size(78, 32);
+            LblName.Size = new Size(59, 25);
             LblName.TabIndex = 14;
             LblName.Text = "Name";
             LblName.Click += label2_Click;
@@ -184,58 +161,67 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(99, 278);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(81, 221);
             label3.Name = "label3";
-            label3.Size = new Size(115, 32);
+            label3.Size = new Size(87, 25);
             label3.TabIndex = 15;
             label3.Text = "Inventory";
             // 
             // LblPriceCost
             // 
             LblPriceCost.AutoSize = true;
-            LblPriceCost.Location = new Point(79, 346);
-            LblPriceCost.Margin = new Padding(4, 0, 4, 0);
+            LblPriceCost.Location = new Point(66, 274);
             LblPriceCost.Name = "LblPriceCost";
-            LblPriceCost.Size = new Size(135, 32);
+            LblPriceCost.Size = new Size(102, 25);
             LblPriceCost.TabIndex = 16;
             LblPriceCost.Text = "Price / Cost";
             // 
             // LblMax
             // 
             LblMax.AutoSize = true;
-            LblMax.Location = new Point(153, 413);
-            LblMax.Margin = new Padding(4, 0, 4, 0);
+            LblMax.Location = new Point(123, 327);
             LblMax.Name = "LblMax";
-            LblMax.Size = new Size(59, 32);
+            LblMax.Size = new Size(45, 25);
             LblMax.TabIndex = 17;
             LblMax.Text = "Max";
             // 
             // LblMin
             // 
             LblMin.AutoSize = true;
-            LblMin.Location = new Point(407, 413);
-            LblMin.Margin = new Padding(4, 0, 4, 0);
+            LblMin.Location = new Point(318, 327);
             LblMin.Name = "LblMin";
-            LblMin.Size = new Size(56, 32);
+            LblMin.Size = new Size(42, 25);
             LblMin.TabIndex = 18;
             LblMin.Text = "Min";
+            LblMin.Click += LblMin_Click;
             // 
             // LblMachineId
             // 
             LblMachineId.AutoSize = true;
-            LblMachineId.Location = new Point(81, 481);
-            LblMachineId.Margin = new Padding(4, 0, 4, 0);
+            LblMachineId.Location = new Point(62, 376);
             LblMachineId.Name = "LblMachineId";
-            LblMachineId.Size = new Size(136, 32);
+            LblMachineId.Size = new Size(101, 25);
             LblMachineId.TabIndex = 19;
             LblMachineId.Text = "Machine ID";
             // 
+            // RbInHouse
+            // 
+            RbInHouse.AutoSize = true;
+            RbInHouse.Checked = true;
+            RbInHouse.Location = new Point(158, 28);
+            RbInHouse.Name = "RbInHouse";
+            RbInHouse.Size = new Size(110, 29);
+            RbInHouse.TabIndex = 0;
+            RbInHouse.TabStop = true;
+            RbInHouse.Text = "In-House";
+            RbInHouse.UseVisualStyleBackColor = true;
+            RbInHouse.CheckedChanged += RbInHouse_CheckedChanged;
+            // 
             // AddPart
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(725, 653);
+            ClientSize = new Size(558, 510);
             Controls.Add(LblMachineId);
             Controls.Add(LblMin);
             Controls.Add(LblMax);
@@ -255,16 +241,14 @@
             Controls.Add(RbOutsourced);
             Controls.Add(RbInHouse);
             Controls.Add(TbMachineId);
-            Margin = new Padding(4, 4, 4, 4);
             Name = "AddPart";
             Text = "Part";
+            Load += AddPart_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private RadioButton RbInHouse;
         private RadioButton RbOutsourced;
         private Button BtnSave;
         private Button BtnCancel;
@@ -283,5 +267,6 @@
         private Label LblMax;
         private Label LblMin;
         private Label LblMachineId;
+        private RadioButton RbInHouse;
     }
 }

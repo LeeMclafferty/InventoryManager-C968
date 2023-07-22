@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Software_I___C____C968
 {
-    public partial class AddPartsMod : Form
+    public partial class ModifyPartOutsource : Form
     {
-        public AddPartsMod()
+        public ModifyPartOutsource()
         {
             InitializeComponent();
         }

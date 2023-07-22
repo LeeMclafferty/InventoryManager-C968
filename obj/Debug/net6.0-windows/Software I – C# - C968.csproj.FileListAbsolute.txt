@@ -43,9 +43,6 @@ D:\Code\InventoryManager-C968\bin\Debug\net6.0-windows\Software I – C# - C968.
 D:\Code\InventoryManager-C968\bin\Debug\net6.0-windows\Software I – C# - C968.pdb
 D:\Code\InventoryManager-C968\obj\Debug\net6.0-windows\Software I – C# - C968.csproj.AssemblyReference.cache
 D:\Code\InventoryManager-C968\obj\Debug\net6.0-windows\Software_I___C____C968.AddPart.resources
-D:\Code\InventoryManager-C968\obj\Debug\net6.0-windows\Software_I___C____C968.AddPartsMod.resources
-D:\Code\InventoryManager-C968\obj\Debug\net6.0-windows\Software_I___C____C968.Form1.resources
-D:\Code\InventoryManager-C968\obj\Debug\net6.0-windows\Software_I___C____C968.ProductMod.resources
 D:\Code\InventoryManager-C968\obj\Debug\net6.0-windows\Software I – C# - C968.csproj.GenerateResource.cache
 D:\Code\InventoryManager-C968\obj\Debug\net6.0-windows\Software I – C# - C968.GeneratedMSBuildEditorConfig.editorconfig
 D:\Code\InventoryManager-C968\obj\Debug\net6.0-windows\Software I – C# - C968.AssemblyInfoInputs.cache
@@ -56,4 +53,9 @@ D:\Code\InventoryManager-C968\obj\Debug\net6.0-windows\refint\Software I – C# 
 D:\Code\InventoryManager-C968\obj\Debug\net6.0-windows\Software I – C# - C968.pdb
 D:\Code\InventoryManager-C968\obj\Debug\net6.0-windows\Software I – C# - C968.genruntimeconfig.cache
 D:\Code\InventoryManager-C968\obj\Debug\net6.0-windows\ref\Software I – C# - C968.dll
-D:\Code\InventoryManager-C968\obj\Debug\net6.0-windows\Software_I___C____C968.ProductForm.resources
+D:\Code\InventoryManager-C968\obj\Debug\net6.0-windows\Software_I___C____C968.AddPartsOutsource.resources
+D:\Code\InventoryManager-C968\obj\Debug\net6.0-windows\Software_I___C____C968.AddProduct.resources
+D:\Code\InventoryManager-C968\obj\Debug\net6.0-windows\Software_I___C____C968.ModifyPart.resources
+D:\Code\InventoryManager-C968\obj\Debug\net6.0-windows\Software_I___C____C968.ModifyPartOutsource.resources
+D:\Code\InventoryManager-C968\obj\Debug\net6.0-windows\Software_I___C____C968.ModifyProduct.resources
+D:\Code\InventoryManager-C968\obj\Debug\net6.0-windows\Software_I___C____C968.MainScreen.resources

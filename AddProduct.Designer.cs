@@ -1,6 +1,6 @@
 ﻿namespace Software_I___C____C968
 {
-    partial class ProductForm
+    partial class AddProduct
     {
         /// <summary>
         /// Required designer variable.

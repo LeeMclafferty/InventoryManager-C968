@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Software_I___C____C968
 {
-    public partial class ProductForm : Form
+    public partial class AddProduct : Form
     {
-        public ProductForm()
+        public AddProduct()
         {
             InitializeComponent();
         }
