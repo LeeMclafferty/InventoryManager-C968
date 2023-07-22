@@ -6,14 +6,22 @@ using System.Threading.Tasks;
 
 namespace Software_I___C____C968.src
 {
-    internal class Part
+    public class Part
     {
-        public Part() { }
-        public int partID;
-        public string name;
-        public double price;
-        public int inStock;
-        public int min;
-        public int max;
+        public Part()
+        {
+            partID = 0;
+            name = "None";
+            price = 0;
+            inStock = 0;
+            min = 0; 
+            max = 0;
+        }
+        public int partID { get; set; }
+        public string name { get; set; }
+        public double price { get; set; }
+        public int inStock { get; set; }
+        public int min { get; set; }
+        public int max { get; set; }
     }
 }
