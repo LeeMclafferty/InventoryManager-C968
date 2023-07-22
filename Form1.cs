@@ -1,5 +1,6 @@
 using Software_I___C____C968.src;
 using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace Software_I___C____C968
 {
@@ -7,7 +8,7 @@ namespace Software_I___C____C968
     {
 
         public List<Part> parts { get; set; }
-        public List<Product> products  { get; set; }
+        public List<Product> products { get; set; }
         public Form1()
         {
             InitializeComponent();
@@ -43,7 +44,7 @@ namespace Software_I___C____C968
             ProductMod productModForm = new ProductMod();
             productModForm.Show();
         }
-        
+
         private List<Part> InitializeParts()
         {
             List<Part> intialParts = new List<Part>();
@@ -98,7 +99,7 @@ namespace Software_I___C____C968
                 new Product()
                 {
                     productID = 0,
-                    name = "Red Bicycle", 
+                    name = "Red Bicycle",
                     inStock = 15,
                     price = 11.44,
                     min = 1,
@@ -152,6 +153,46 @@ namespace Software_I___C____C968
             DgvProducts.Columns[3].HeaderText = "Price";
             DgvProducts.Columns[4].HeaderText = "Min";
             DgvProducts.Columns[5].HeaderText = "Max";
+        }
+
+        private void BtnDeleteParts_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (DgvParts.SelectedRows.Count > 0) // Ensure a row is selected
+                {
+                    int selectedRowIndex = DgvParts.SelectedRows[0].Index;
+                    parts.RemoveAt(selectedRowIndex);
+
+                    /* Refresh Data */
+                    DgvParts.DataSource = null;
+                    DgvParts.DataSource = parts;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Part Deletion Error: " + ex.Message);
+            }
+        }
+
+        private void BtnDeleteProducts_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (DgvProducts.SelectedRows.Count > 0) // Ensure a row is selected
+                {
+                    int selectedRowIndex = DgvProducts.SelectedRows[0].Index;
+                    products.RemoveAt(selectedRowIndex);
+
+                    /* Refresh Data */
+                    DgvProducts.DataSource = null;
+                    DgvProducts.DataSource = products;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Part Deletion Error: " + ex.Message);
+            }
         }
     }
 }
