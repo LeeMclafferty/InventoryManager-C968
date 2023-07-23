@@ -1,6 +1,8 @@
 using Software_I___C____C968.src;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing.Design;
+using System.Security.Policy;
 using System.Windows.Forms;
 
 namespace Software_I___C____C968
@@ -9,19 +11,20 @@ namespace Software_I___C____C968
     {
         public BindingList<Part> boundPartsData { get; set; }
         public BindingList<Product> boundProductData { get; set; }
-        Inventory inventory { get; set; }
+        public Inventory inventory { get; set; }
 
         public AddPart? addPartForm = null;
         public AddProduct? addProductForm = null;
         public ModifyProduct? modifyProductForm = null;
-        public ModifyPart? ModifyPartForm = null;
+
+        public ModifyPart? modifyPartForm = null;
+        public ModifyPartOutsource? modifyPartOutsourceForm = null;
 
         public MainScreen()
         {
             InitializeComponent();
             inventory = new Inventory();
-            boundPartsData = new BindingList<Part>(inventory.allParts);
-            boundProductData = new BindingList<Product>(inventory.products);
+            RefreshDataSource();
             DgvParts.AllowUserToAddRows = false;
             DgvProducts.AllowUserToAddRows = false;
         }
@@ -47,8 +50,7 @@ namespace Software_I___C____C968
                 }
             }
 
-            DgvParts.DataSource = null;
-            DgvParts.DataSource = new BindingList<Part>(filteredParts);
+           RefreshDataSource(filteredParts);
         }
 
         private void BtnAddParts_Click(object sender, EventArgs e)
@@ -87,19 +89,51 @@ namespace Software_I___C____C968
 
         private void BtnModifyParts_Click(object sender, EventArgs e)
         {
-            if (ModifyPartForm == null)
+                
+            Part selectedPart = GetSelectedPart();
+            modifyPartForm = null;
+            modifyPartOutsourceForm = null;
+
+            Outsourced? outsourcedPart = selectedPart as Outsourced;
+            Inhouse? inhousePart = selectedPart as Inhouse;
+
+            if (inhousePart != null) 
             {
-                ModifyPartForm = new ModifyPart();
+                if (selectedPart.partID > -1)
+                {
+                   modifyPartForm = new ModifyPart(this, selectedPart.partID);
+                }
+            }
+            if(modifyPartForm != null)
+            {
+                try
+                {
+                    modifyPartForm.Show();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Unable to open ModifyPartForm: " + ex.Message);
+                };
             }
 
-            try
+            if (outsourcedPart != null)
             {
-                ModifyPartForm.Show();
+                if (selectedPart.partID > -1)
+                {
+                    modifyPartOutsourceForm = new ModifyPartOutsource(this, selectedPart.partID);
+                }
             }
-            catch (Exception ex)
+            if (modifyPartOutsourceForm != null)
             {
-                Console.WriteLine("Unable to open ModifyPartForm: " + ex.Message);
-            };
+                try
+                {
+                    modifyPartOutsourceForm.Show();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Unable to open ModifyPartForm: " + ex.Message);
+                };
+            }
         }
 
         private void BtnModifyProducts_Click(object sender, EventArgs e)
@@ -153,11 +187,7 @@ namespace Software_I___C____C968
                 {
                     int selectedRowIndex = DgvParts.SelectedRows[0].Index;
                     inventory.allParts.RemoveAt(selectedRowIndex);
-
-                    /* Refresh Data */
-                    boundPartsData = new BindingList<Part>(inventory.allParts);
-                    DgvParts.DataSource = null;
-                    DgvParts.DataSource = boundPartsData;
+                    RefreshDataSource(true, false);
                 }
             }
             catch (Exception ex)
@@ -174,11 +204,7 @@ namespace Software_I___C____C968
                 {
                     int selectedRowIndex = DgvProducts.SelectedRows[0].Index;
                     inventory.products.RemoveAt(selectedRowIndex);
-
-                    /* Refresh Data */
-                    boundProductData = new BindingList<Product>(inventory.products);
-                    DgvProducts.DataSource = null;
-                    DgvProducts.DataSource = boundProductData;
+                    RefreshDataSource(false, true);
                 }
             }
             catch (Exception ex)
@@ -208,13 +234,66 @@ namespace Software_I___C____C968
                 }
             }
 
-            DgvProducts.DataSource = null;
-            DgvProducts.DataSource = new BindingList<Product>(filteredProducts);
+            RefreshDataSource(filteredProducts);
         }
 
         private void BtnExit_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        /* Defaulted to refresh both list */
+        public void RefreshDataSource(bool refreshParts = true, bool refreshProducts = true)
+        {
+            if(refreshParts)
+            {
+            boundPartsData = new BindingList<Part>(inventory.allParts);
+            DgvParts.DataSource = null;
+            DgvParts.DataSource = boundPartsData;
+            }
+            
+            if(refreshProducts)
+            {
+            boundProductData = new BindingList<Product>(inventory.products);
+            DgvProducts.DataSource = null;
+            DgvProducts.DataSource = boundProductData;
+            }
+
+            SetupHeaders();
+        }
+
+        public void RefreshDataSource(List<Part> partsFilter)
+        {
+            boundPartsData = new BindingList<Part>(partsFilter);
+            DgvParts.DataSource = null;
+            DgvParts.DataSource = boundPartsData;
+
+            SetupHeaders();
+        }
+
+        public void RefreshDataSource(List<Product> productFilter)
+        {
+
+            boundProductData = new BindingList<Product>(productFilter);
+            DgvProducts.DataSource = null;
+            DgvProducts.DataSource = boundProductData;
+
+            SetupHeaders();
+        }
+
+        private Part GetSelectedPart()
+        {
+            if (DgvParts.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = DgvParts.SelectedRows[0];
+                int partId = Convert.ToInt32(selectedRow.Cells["partID"].Value);
+                return inventory.lookupPart(partId);
+            }
+            else
+            {
+                MessageBox.Show("No row selected.", "Error");
+                return null;
+            }
         }
     }
 }

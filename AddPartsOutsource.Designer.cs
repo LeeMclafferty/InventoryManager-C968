@@ -198,6 +198,7 @@
             BtnSave.TabIndex = 22;
             BtnSave.Text = "Save";
             BtnSave.UseVisualStyleBackColor = true;
+            BtnSave.Click += BtnSave_Click;
             // 
             // RbOutsourced
             // 

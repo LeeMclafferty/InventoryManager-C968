@@ -156,7 +156,6 @@
             LblName.Size = new Size(59, 25);
             LblName.TabIndex = 14;
             LblName.Text = "Name";
-            LblName.Click += label2_Click;
             // 
             // label3
             // 
@@ -193,7 +192,6 @@
             LblMin.Size = new Size(42, 25);
             LblMin.TabIndex = 18;
             LblMin.Text = "Min";
-            LblMin.Click += LblMin_Click;
             // 
             // LblMachineId
             // 

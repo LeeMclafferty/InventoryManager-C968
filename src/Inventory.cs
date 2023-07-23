@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Software_I___C____C968.src
 {
-    internal class Inventory
+    public class Inventory
     {
 
         public BindingList<Product> products;
@@ -57,8 +57,8 @@ namespace Software_I___C____C968.src
                 if (product.productID == id)
                 {
                     item.name = product.name;
-                    item.price = product.price;
                     item.inStock = product.inStock;
+                    item.price = product.price;
                     item.min = product.min;
                     item.max = product.max;
                     item.associatedParts = product.associatedParts;
@@ -94,9 +94,10 @@ namespace Software_I___C____C968.src
             {
                 if (item.partID == id)
                 {
+                    item.partID = part.partID;
                     item.name = part.name;
-                    item.price = part.price;
                     item.inStock = part.inStock;
+                    item.price = part.price;
                     item.min = part.min;
                     item.max = part.max;
                 }
@@ -106,44 +107,48 @@ namespace Software_I___C____C968.src
         private void SetupPartsList()
         {
             allParts.Add(
-                new Part()
+                new Inhouse()
                 {
                     partID = 0,
                     name = "Wheel",
                     inStock = 15,
                     price = 12.11,
                     min = 5,
-                    max = 25
+                    max = 25,
+                    machineID = 1220
                 });
             allParts.Add(
-                new Part()
+                new Inhouse()
                 {
                     partID = 1,
                     name = "Pedal",
                     inStock = 11,
                     price = 8.22,
                     min = 5,
-                    max = 25
+                    max = 25,
+                    machineID = 128,
                 });
             allParts.Add(
-                new Part()
+                new Outsourced()
                 {
                     partID = 2,
                     name = "Chain",
                     inStock = 12,
                     price = 8.33,
                     min = 5,
-                    max = 25
+                    max = 25,
+                    companyName = "Chain Hangin'"
                 });
             allParts.Add(
-                new Part()
+                new Outsourced()
                 {
                     partID = 3,
                     name = "Seat",
                     inStock = 8,
                     price = 4.55,
                     min = 2,
-                    max = 15
+                    max = 15,
+                    companyName = "Seat City"
                 });
         }
 

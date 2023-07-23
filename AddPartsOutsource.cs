@@ -42,12 +42,76 @@ namespace Software_I___C____C968
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
+            CloseWindow();
+        }
+
+        private void CloseWindow()
+        {
             if (inHouse != null)
             {
-                inHouse.ClearSelfRef();
+                inHouse.CloseWindow();
                 inHouse = null;
             }
             this.Close();
+        }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            if (CheckTextBoxes())
+            {
+                Outsourced part = new Outsourced();
+                part.partID = Int32.Parse(TbId.Text);
+                part.name = TbName.Text;
+                part.price = Double.Parse(TbPriceCost.Text);
+                part.inStock = Int32.Parse(TbInventory.Text);
+                part.min = Int32.Parse(TbMin.Text);
+                part.max = Int32.Parse(TbMax.Text);
+                part.companyName = TbCompanyName.Text;
+
+                if(inHouse != null)
+                {
+                    AddToInventory(part);
+                    CloseWindow();
+                }
+            }
+        }
+
+        private void AddToInventory(Outsourced toAdd)
+        {
+            if (inHouse == null) return;
+
+            if (inHouse.mainScreen.inventory == null) return;
+
+            inHouse.mainScreen.inventory.addPart(toAdd);
+        }
+
+
+        private bool CheckTextBoxes()
+        {
+            var textBoxes = new List<TextBox>();
+            textBoxes.Add(TbId);
+            textBoxes.Add(TbName);
+            textBoxes.Add(TbPriceCost);
+            textBoxes.Add(TbInventory);
+            textBoxes.Add(TbMin);
+            textBoxes.Add(TbMax);
+            textBoxes.Add(TbCompanyName);
+
+            bool canContiue = true;
+            foreach (TextBox textBox in textBoxes)
+            {
+                if (string.IsNullOrEmpty(textBox.Text))
+                {
+                    textBox.BackColor = Color.Red;
+                    canContiue = false;
+                }
+                else
+                {
+                    textBox.BackColor = Color.White;
+                }
+            }
+
+            return canContiue;
         }
     }
 }
