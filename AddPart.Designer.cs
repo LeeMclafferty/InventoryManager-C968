@@ -241,7 +241,6 @@
             Controls.Add(TbMachineId);
             Name = "AddPart";
             Text = "Part";
-            Load += AddPart_Load;
             ResumeLayout(false);
             PerformLayout();
         }

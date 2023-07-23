@@ -29,26 +29,26 @@ namespace Software_I___C____C968
             RbInHouse.Checked = true;
         }
 
-        private void AddPart_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             CloseWindow();
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            CleanupRefs();
+        }
+
         public void CloseWindow()
         {
             mainScreen.RefreshDataSource();
-            ClearSelfRef();
-            outsourced = null;
+            CleanupRefs();
             this.Close();
         }
 
-        public void ClearSelfRef()
+        public void CleanupRefs()
         {
+            outsourced = null;
             mainScreen.addPartForm = null;
         }
 

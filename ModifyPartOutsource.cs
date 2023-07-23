@@ -36,6 +36,12 @@ namespace Software_I___C____C968
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             CloseWindow();
+            Close();
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            CloseWindow();
         }
 
         private void CloseWindow()
@@ -45,7 +51,6 @@ namespace Software_I___C____C968
                 inHouseForm.CloseWindow();
                 inHouseForm = null;
             }
-            this.Close();
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -77,6 +82,7 @@ namespace Software_I___C____C968
                 {
                     ModifyInventoryPart(part);
                     CloseWindow();
+                    Close();
                 }
             }
         }

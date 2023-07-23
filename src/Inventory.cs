@@ -54,14 +54,19 @@ namespace Software_I___C____C968.src
         {
             foreach (Product item in products)
             {
-                if (product.productID == id)
+                if (item.productID == id)
                 {
+                    foreach (Part part in product.associatedParts)
+                    {
+                        item.associatedParts.Add(part);
+                    }
+                    item.productID = product.productID;
                     item.name = product.name;
                     item.inStock = product.inStock;
                     item.price = product.price;
                     item.min = product.min;
                     item.max = product.max;
-                    item.associatedParts = product.associatedParts;
+                    return;
                 }
             }
         }

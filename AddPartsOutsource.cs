@@ -45,6 +45,15 @@ namespace Software_I___C____C968
             CloseWindow();
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (inHouse != null)
+            {
+                inHouse.CloseWindow();
+                inHouse = null;
+            }
+        }
+
         private void CloseWindow()
         {
             if (inHouse != null)

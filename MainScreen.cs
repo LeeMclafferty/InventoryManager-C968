@@ -14,6 +14,7 @@ namespace Software_I___C____C968
         public Inventory inventory { get; set; }
 
         public AddPart? addPartForm = null;
+
         public AddProduct? addProductForm = null;
         public ModifyProduct? modifyProductForm = null;
 
@@ -74,7 +75,7 @@ namespace Software_I___C____C968
         {
             if (addProductForm == null)
             {
-                addProductForm = new AddProduct();
+                addProductForm = new AddProduct(this);
             }
 
             try
@@ -138,19 +139,25 @@ namespace Software_I___C____C968
 
         private void BtnModifyProducts_Click(object sender, EventArgs e)
         {
-            if (modifyProductForm == null)
-            {
-                modifyProductForm = new ModifyProduct();
-            }
+            Product selectedProduct = GetSelectedProduct();
+            modifyProductForm = null;
+            if (selectedProduct == null) return;
 
-            try
+            if (selectedProduct.productID > -1)
             {
-                modifyProductForm.Show();
+                modifyProductForm = new ModifyProduct(this, selectedProduct);
             }
-            catch (Exception ex)
+            if (modifyProductForm != null)
             {
-                Console.WriteLine("Unable to open modifyProductForm: " + ex.Message);
-            };
+                try
+                {
+                    modifyProductForm.Show();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Unable to open ModifyPartForm: " + ex.Message);
+                };
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -288,6 +295,21 @@ namespace Software_I___C____C968
                 DataGridViewRow selectedRow = DgvParts.SelectedRows[0];
                 int partId = Convert.ToInt32(selectedRow.Cells["partID"].Value);
                 return inventory.lookupPart(partId);
+            }
+            else
+            {
+                MessageBox.Show("No row selected.", "Error");
+                return null;
+            }
+        }
+
+        private Product GetSelectedProduct()
+        {
+            if (DgvProducts.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = DgvProducts.SelectedRows[0];
+                int productId = Convert.ToInt32(selectedRow.Cells["productID"].Value);
+                return inventory.lookupProduct(productId);
             }
             else
             {

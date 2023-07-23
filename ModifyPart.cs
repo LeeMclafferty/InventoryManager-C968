@@ -34,8 +34,15 @@ namespace Software_I___C____C968
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             CloseWindow();
+            Close();
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            CloseWindow();
+        }
+
+        /* Cannot call Close() in this function since I am calling it on OnFormClosing */
         public void CloseWindow()
         {
             if (mainScreen != null)
@@ -45,7 +52,6 @@ namespace Software_I___C____C968
             ClearSelfRef();
             outsourcedForm = null;
             selctedPartId = -1;
-            this.Close();
         }
 
         private void ClearSelfRef()
@@ -78,6 +84,7 @@ namespace Software_I___C____C968
 
                 ModifyInventoryPart(part);
                 CloseWindow();
+                Close();
             }
         }
 

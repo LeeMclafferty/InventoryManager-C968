@@ -32,10 +32,10 @@
             BtnDelete = new Button();
             BtnSave = new Button();
             BtnCancel = new Button();
-            GvPartsAssociated = new DataGridView();
-            GvCandidateParts = new DataGridView();
+            DgvPartsAssociated = new DataGridView();
+            DgvCandidateParts = new DataGridView();
             BtnSearch = new Button();
-            TbProductsSearch = new TextBox();
+            TbPartsSearch = new TextBox();
             LblMin = new Label();
             LblMax = new Label();
             LblPrice = new Label();
@@ -51,237 +51,223 @@
             LblTitle = new Label();
             LblCandidateParts = new Label();
             LblPartsAssociated = new Label();
-            ((System.ComponentModel.ISupportInitialize)GvPartsAssociated).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)GvCandidateParts).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DgvPartsAssociated).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DgvCandidateParts).BeginInit();
             SuspendLayout();
             // 
             // BtnAdd
             // 
-            BtnAdd.Location = new Point(1173, 401);
+            BtnAdd.Location = new Point(903, 313);
+            BtnAdd.Margin = new Padding(3, 2, 3, 2);
             BtnAdd.Name = "BtnAdd";
-            BtnAdd.Size = new Size(150, 46);
+            BtnAdd.Size = new Size(116, 37);
             BtnAdd.TabIndex = 0;
             BtnAdd.Text = "Add";
             BtnAdd.UseVisualStyleBackColor = true;
+            BtnAdd.Click += BtnAdd_Click;
             // 
             // BtnDelete
             // 
-            BtnDelete.Location = new Point(1173, 761);
+            BtnDelete.Location = new Point(903, 595);
+            BtnDelete.Margin = new Padding(3, 2, 3, 2);
             BtnDelete.Name = "BtnDelete";
-            BtnDelete.Size = new Size(150, 46);
+            BtnDelete.Size = new Size(116, 37);
             BtnDelete.TabIndex = 1;
             BtnDelete.Text = "Delete";
             BtnDelete.UseVisualStyleBackColor = true;
+            BtnDelete.Click += BtnDelete_Click;
             // 
             // BtnSave
             // 
-            BtnSave.Location = new Point(988, 829);
+            BtnSave.Location = new Point(760, 648);
+            BtnSave.Margin = new Padding(3, 2, 3, 2);
             BtnSave.Name = "BtnSave";
-            BtnSave.Size = new Size(150, 46);
+            BtnSave.Size = new Size(116, 37);
             BtnSave.TabIndex = 2;
             BtnSave.Text = "Save";
             BtnSave.UseVisualStyleBackColor = true;
+            BtnSave.Click += BtnSave_Click;
             // 
             // BtnCancel
             // 
-            BtnCancel.Location = new Point(1173, 829);
+            BtnCancel.Location = new Point(903, 648);
+            BtnCancel.Margin = new Padding(3, 2, 3, 2);
             BtnCancel.Name = "BtnCancel";
-            BtnCancel.Size = new Size(150, 46);
+            BtnCancel.Size = new Size(116, 37);
             BtnCancel.TabIndex = 3;
             BtnCancel.Text = "Cancel";
             BtnCancel.UseVisualStyleBackColor = true;
+            BtnCancel.Click += BtnCancel_Click;
             // 
-            // GvPartsAssociated
+            // DgvPartsAssociated
             // 
-            GvPartsAssociated.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GvPartsAssociated.Location = new Point(583, 473);
-            GvPartsAssociated.Name = "GvPartsAssociated";
-            GvPartsAssociated.RowHeadersWidth = 82;
-            GvPartsAssociated.RowTemplate.Height = 41;
-            GvPartsAssociated.Size = new Size(794, 266);
-            GvPartsAssociated.TabIndex = 4;
+            DgvPartsAssociated.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DgvPartsAssociated.Location = new Point(449, 370);
+            DgvPartsAssociated.Margin = new Padding(3, 2, 3, 2);
+            DgvPartsAssociated.Name = "DgvPartsAssociated";
+            DgvPartsAssociated.RowHeadersWidth = 82;
+            DgvPartsAssociated.RowTemplate.Height = 41;
+            DgvPartsAssociated.Size = new Size(611, 208);
+            DgvPartsAssociated.TabIndex = 4;
             // 
-            // GvCandidateParts
+            // DgvCandidateParts
             // 
-            GvCandidateParts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GvCandidateParts.Location = new Point(583, 117);
-            GvCandidateParts.Name = "GvCandidateParts";
-            GvCandidateParts.RowHeadersWidth = 82;
-            GvCandidateParts.RowTemplate.Height = 41;
-            GvCandidateParts.Size = new Size(794, 266);
-            GvCandidateParts.TabIndex = 5;
+            DgvCandidateParts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DgvCandidateParts.Location = new Point(449, 92);
+            DgvCandidateParts.Margin = new Padding(3, 2, 3, 2);
+            DgvCandidateParts.Name = "DgvCandidateParts";
+            DgvCandidateParts.RowHeadersWidth = 82;
+            DgvCandidateParts.RowTemplate.Height = 41;
+            DgvCandidateParts.Size = new Size(611, 208);
+            DgvCandidateParts.TabIndex = 5;
             // 
             // BtnSearch
             // 
-            BtnSearch.Location = new Point(859, 52);
+            BtnSearch.Location = new Point(661, 40);
+            BtnSearch.Margin = new Padding(3, 2, 3, 2);
             BtnSearch.Name = "BtnSearch";
-            BtnSearch.Size = new Size(150, 46);
+            BtnSearch.Size = new Size(116, 37);
             BtnSearch.TabIndex = 6;
             BtnSearch.Text = "Search";
             BtnSearch.UseVisualStyleBackColor = true;
+            BtnSearch.Click += BtnSearch_Click;
             // 
-            // TbProductsSearch
+            // TbPartsSearch
             // 
-            TbProductsSearch.Location = new Point(1039, 56);
-            TbProductsSearch.Margin = new Padding(4);
-            TbProductsSearch.Name = "TbProductsSearch";
-            TbProductsSearch.Size = new Size(338, 39);
-            TbProductsSearch.TabIndex = 13;
+            TbPartsSearch.Location = new Point(799, 43);
+            TbPartsSearch.Name = "TbPartsSearch";
+            TbPartsSearch.Size = new Size(261, 31);
+            TbPartsSearch.TabIndex = 13;
             // 
             // LblMin
             // 
             LblMin.AutoSize = true;
-            LblMin.Location = new Point(292, 551);
-            LblMin.Margin = new Padding(4, 0, 4, 0);
+            LblMin.Location = new Point(224, 430);
             LblMin.Name = "LblMin";
-            LblMin.Size = new Size(56, 32);
+            LblMin.Size = new Size(42, 25);
             LblMin.TabIndex = 30;
             LblMin.Text = "Min";
-            LblMin.Click += LblMin_Click;
             // 
             // LblMax
             // 
             LblMax.AutoSize = true;
-            LblMax.Location = new Point(33, 551);
-            LblMax.Margin = new Padding(4, 0, 4, 0);
+            LblMax.Location = new Point(26, 430);
             LblMax.Name = "LblMax";
-            LblMax.Size = new Size(59, 32);
+            LblMax.Size = new Size(45, 25);
             LblMax.TabIndex = 29;
             LblMax.Text = "Max";
-            LblMax.Click += LblMax_Click;
             // 
             // LblPrice
             // 
             LblPrice.AutoSize = true;
-            LblPrice.Location = new Point(33, 487);
-            LblPrice.Margin = new Padding(4, 0, 4, 0);
+            LblPrice.Location = new Point(26, 380);
             LblPrice.Name = "LblPrice";
-            LblPrice.Size = new Size(65, 32);
+            LblPrice.Size = new Size(49, 25);
             LblPrice.TabIndex = 28;
             LblPrice.Text = "Price";
-            LblPrice.Click += LblPriceCost_Click;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(33, 416);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(26, 325);
             label3.Name = "label3";
-            label3.Size = new Size(115, 32);
+            label3.Size = new Size(87, 25);
             label3.TabIndex = 27;
             label3.Text = "Inventory";
-            label3.Click += label3_Click;
             // 
             // LblName
             // 
             LblName.AutoSize = true;
-            LblName.Location = new Point(33, 348);
-            LblName.Margin = new Padding(4, 0, 4, 0);
+            LblName.Location = new Point(26, 272);
             LblName.Name = "LblName";
-            LblName.Size = new Size(78, 32);
+            LblName.Size = new Size(59, 25);
             LblName.TabIndex = 26;
             LblName.Text = "Name";
-            LblName.Click += LblName_Click;
             // 
             // LblId
             // 
             LblId.AutoSize = true;
-            LblId.Location = new Point(33, 280);
-            LblId.Margin = new Padding(4, 0, 4, 0);
+            LblId.Location = new Point(26, 218);
             LblId.Name = "LblId";
-            LblId.Size = new Size(37, 32);
+            LblId.Size = new Size(30, 25);
             LblId.TabIndex = 25;
             LblId.Text = "ID";
-            LblId.Click += LblId_Click;
             // 
             // TbMin
             // 
-            TbMin.Location = new Point(395, 548);
-            TbMin.Margin = new Padding(4);
+            TbMin.Location = new Point(304, 428);
             TbMin.Name = "TbMin";
-            TbMin.Size = new Size(129, 39);
+            TbMin.Size = new Size(100, 31);
             TbMin.TabIndex = 24;
-            TbMin.TextChanged += TbMin_TextChanged;
             // 
             // TbMax
             // 
-            TbMax.Location = new Point(114, 548);
-            TbMax.Margin = new Padding(4);
+            TbMax.Location = new Point(87, 428);
             TbMax.Name = "TbMax";
-            TbMax.Size = new Size(129, 39);
+            TbMax.Size = new Size(100, 31);
             TbMax.TabIndex = 23;
-            TbMax.TextChanged += TbMax_TextChanged;
             // 
             // TbPriceCost
             // 
-            TbPriceCost.Location = new Point(163, 480);
-            TbPriceCost.Margin = new Padding(4);
+            TbPriceCost.Location = new Point(126, 375);
             TbPriceCost.Name = "TbPriceCost";
-            TbPriceCost.Size = new Size(259, 39);
+            TbPriceCost.Size = new Size(200, 31);
             TbPriceCost.TabIndex = 22;
-            TbPriceCost.TextChanged += TbPriceCost_TextChanged;
             // 
             // TbInventory
             // 
-            TbInventory.Location = new Point(163, 412);
-            TbInventory.Margin = new Padding(4);
+            TbInventory.Location = new Point(126, 322);
             TbInventory.Name = "TbInventory";
-            TbInventory.Size = new Size(259, 39);
+            TbInventory.Size = new Size(200, 31);
             TbInventory.TabIndex = 21;
-            TbInventory.TextChanged += TbInventory_TextChanged;
             // 
             // TbName
             // 
-            TbName.Location = new Point(163, 344);
-            TbName.Margin = new Padding(4);
+            TbName.Location = new Point(126, 268);
             TbName.Name = "TbName";
-            TbName.Size = new Size(259, 39);
+            TbName.Size = new Size(200, 31);
             TbName.TabIndex = 20;
-            TbName.TextChanged += TbName_TextChanged;
             // 
             // TbId
             // 
-            TbId.Location = new Point(163, 276);
-            TbId.Margin = new Padding(4);
+            TbId.Location = new Point(126, 215);
             TbId.Name = "TbId";
-            TbId.Size = new Size(259, 39);
+            TbId.Size = new Size(200, 31);
             TbId.TabIndex = 19;
-            TbId.TextChanged += TbId_TextChanged;
             // 
             // LblTitle
             // 
             LblTitle.AutoSize = true;
             LblTitle.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            LblTitle.Location = new Point(44, 20);
+            LblTitle.Location = new Point(34, 15);
             LblTitle.Name = "LblTitle";
-            LblTitle.Size = new Size(199, 45);
+            LblTitle.Size = new Size(146, 32);
             LblTitle.TabIndex = 31;
             LblTitle.Text = "Add Product";
             // 
             // LblCandidateParts
             // 
             LblCandidateParts.AutoSize = true;
-            LblCandidateParts.Location = new Point(583, 82);
+            LblCandidateParts.Location = new Point(449, 63);
             LblCandidateParts.Name = "LblCandidateParts";
-            LblCandidateParts.Size = new Size(213, 32);
+            LblCandidateParts.Size = new Size(160, 25);
             LblCandidateParts.TabIndex = 32;
             LblCandidateParts.Text = "All Candidate Parts";
-            LblCandidateParts.Click += label1_Click;
             // 
             // LblPartsAssociated
             // 
             LblPartsAssociated.AutoSize = true;
-            LblPartsAssociated.Location = new Point(583, 438);
+            LblPartsAssociated.Location = new Point(449, 342);
             LblPartsAssociated.Name = "LblPartsAssociated";
-            LblPartsAssociated.Size = new Size(370, 32);
+            LblPartsAssociated.Size = new Size(279, 25);
             LblPartsAssociated.TabIndex = 33;
             LblPartsAssociated.Text = "Parts Associated with this Product";
             // 
-            // Product
+            // AddProduct
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1509, 915);
+            ClientSize = new Size(1161, 715);
             Controls.Add(LblPartsAssociated);
             Controls.Add(LblCandidateParts);
             Controls.Add(LblTitle);
@@ -297,18 +283,19 @@
             Controls.Add(TbInventory);
             Controls.Add(TbName);
             Controls.Add(TbId);
-            Controls.Add(TbProductsSearch);
+            Controls.Add(TbPartsSearch);
             Controls.Add(BtnSearch);
-            Controls.Add(GvCandidateParts);
-            Controls.Add(GvPartsAssociated);
+            Controls.Add(DgvCandidateParts);
+            Controls.Add(DgvPartsAssociated);
             Controls.Add(BtnCancel);
             Controls.Add(BtnSave);
             Controls.Add(BtnDelete);
             Controls.Add(BtnAdd);
-            Name = "Product";
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "AddProduct";
             Text = "Product";
-            ((System.ComponentModel.ISupportInitialize)GvPartsAssociated).EndInit();
-            ((System.ComponentModel.ISupportInitialize)GvCandidateParts).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DgvPartsAssociated).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DgvCandidateParts).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -319,10 +306,10 @@
         private Button BtnDelete;
         private Button BtnSave;
         private Button BtnCancel;
-        private DataGridView GvPartsAssociated;
-        private DataGridView GvCandidateParts;
+        private DataGridView DgvPartsAssociated;
+        private DataGridView DgvCandidateParts;
         private Button BtnSearch;
-        private TextBox TbProductsSearch;
+        private TextBox TbPartsSearch;
         private Label LblMin;
         private Label LblMax;
         private Label LblPrice;
