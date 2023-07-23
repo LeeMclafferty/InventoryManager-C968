@@ -69,23 +69,92 @@ namespace Software_I___C____C968
                 Inhouse part = new Inhouse();
                 Part? moddedPart = mainScreen.inventory.lookupPart(selctedPartId);
                 Inhouse? moddedInHouse = moddedPart as Inhouse;
+                if(CheckTextBoxes())
+                {
+                    part.partID = CheckStringNotEmpty(TbId.Text) ? Int32.Parse(TbId.Text) : moddedPart.partID;
+                    part.name = CheckStringNotEmpty(TbName.Text) ? TbName.Text : moddedPart.name;
+                    part.inStock = CheckStringNotEmpty(TbInventory.Text) ? Int32.Parse(TbInventory.Text) : moddedPart.inStock;
+                    part.price = CheckStringNotEmpty(TbPriceCost.Text) ? Double.Parse(TbPriceCost.Text) : moddedPart.price;
+                    part.min = CheckStringNotEmpty(TbMin.Text) ? Int32.Parse(TbMin.Text) : moddedPart.min;
+                    part.max = CheckStringNotEmpty(TbMax.Text) ? Int32.Parse(TbMax.Text) : moddedPart.max;
 
-                part.partID = CheckStringNotEmpty(TbId.Text) ? Int32.Parse(TbId.Text) : moddedPart.partID;
-                part.name = CheckStringNotEmpty(TbName.Text) ? TbName.Text : moddedPart.name;
-                part.inStock = CheckStringNotEmpty(TbInventory.Text) ? Int32.Parse(TbInventory.Text) : moddedPart.inStock;
-                part.price = CheckStringNotEmpty(TbPriceCost.Text) ? Double.Parse(TbPriceCost.Text) : moddedPart.price;
-                part.min = CheckStringNotEmpty(TbMin.Text) ? Int32.Parse(TbMin.Text) : moddedPart.min;
-                part.max = CheckStringNotEmpty(TbMax.Text) ? Int32.Parse(TbMax.Text) : moddedPart.max;
+                    if(moddedInHouse != null)
+                    { 
+                        part.machineID = CheckStringNotEmpty(TbMachineId.Text) ? Int32.Parse(TbMachineId.Text) : moddedInHouse.machineID;
+                    }
 
-                if(moddedInHouse != null)
-                { 
-                    part.machineID = CheckStringNotEmpty(TbMachineId.Text) ? Int32.Parse(TbMachineId.Text) : moddedInHouse.machineID;
+                    if (part.min > part.max)
+                    {
+                        MessageBox.Show("Min must be less than or equal to max", "error");
+                    }
+                    else
+                    {
+                        ModifyInventoryPart(part);
+                        CloseWindow();
+                        Close();
+                    }
                 }
-
-                ModifyInventoryPart(part);
-                CloseWindow();
-                Close();
             }
+        }
+
+        private bool CheckTextBoxes()
+        {
+            int a;
+            if (CheckStringNotEmpty(TbId.Text))
+            {
+                if (!Int32.TryParse(TbId.Text, out a))
+                {
+                    MessageBox.Show("ID must be a number", "Error");
+                    return false;
+                }
+            }
+
+            if (CheckStringNotEmpty(TbInventory.Text))
+            {
+                if (!Int32.TryParse(TbInventory.Text, out a))
+                {
+                    MessageBox.Show("Inventory must be a number", "Error");
+                    return false;
+                }
+            }
+
+            if (CheckStringNotEmpty(TbPriceCost.Text))
+            {
+                if (!double.TryParse(TbPriceCost.Text, out double b))
+                {
+                    MessageBox.Show("Price must be a number", "Error");
+                    return false;
+                }
+            }
+
+            if (CheckStringNotEmpty(TbMin.Text))
+            {
+                if (!Int32.TryParse(TbMin.Text, out a))
+                {
+                    MessageBox.Show("Min must be a number", "Error");
+                    return false;
+                }
+            }
+
+            if (CheckStringNotEmpty(TbMax.Text))
+            {
+                if (!Int32.TryParse(TbMax.Text, out a))
+                {
+                    MessageBox.Show("Max must be a number", "Error");
+                    return false;
+                }
+            }
+
+            if (CheckStringNotEmpty(TbMachineId.Text))
+            {
+                if (!Int32.TryParse(TbMachineId.Text, out a))
+                {
+                    MessageBox.Show("Machine ID must be a number", "Error");
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         private void ModifyInventoryPart(Inhouse toAdd)
@@ -100,23 +169,6 @@ namespace Software_I___C____C968
         public bool CheckStringNotEmpty(string check)
         {
             return !string.IsNullOrEmpty(check);
-        }
-
-        private bool CheckTextBoxes()
-        {
-            bool canContinue = true;
-
-            if(string.IsNullOrEmpty(TbId.Text))
-            { 
-                TbId.BackColor = Color.Red;
-                canContinue = false;
-            }
-            else
-            {
-                TbId.BackColor = Color.White;
-            }
-            
-            return canContinue;
         }
 
         private void RbOutsourced_CheckedChanged(object sender, EventArgs e)

@@ -167,8 +167,9 @@ namespace Software_I___C____C968.src
                     inStock = 15,
                     price = 11.44,
                     min = 1,
-                    max = 25
-                });
+                    max = 25,
+                    associatedParts = new BindingList<Part>()
+                }); 
             products.Add(
                 new Product()
                 {
@@ -177,7 +178,8 @@ namespace Software_I___C____C968.src
                     inStock = 19,
                     price = 9.66,
                     min = 1,
-                    max = 20
+                    max = 20,
+                    associatedParts = new BindingList<Part>()
                 });
             products.Add(
                 new Product()
@@ -187,7 +189,8 @@ namespace Software_I___C____C968.src
                     inStock = 5,
                     price = 12.77,
                     min = 1,
-                    max = 25
+                    max = 25,
+                    associatedParts = new BindingList<Part>()
                 });
         }
     }

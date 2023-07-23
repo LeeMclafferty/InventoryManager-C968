@@ -192,9 +192,16 @@ namespace Software_I___C____C968
             {
                 if (DgvParts.SelectedRows.Count > 0)
                 {
-                    int selectedRowIndex = DgvParts.SelectedRows[0].Index;
-                    inventory.allParts.RemoveAt(selectedRowIndex);
-                    RefreshDataSource(true, false);
+                    if (MessageBox.Show("Are you sure that you want to delete this product?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    { 
+                        int selectedRowIndex = DgvParts.SelectedRows[0].Index;
+                        inventory.allParts.RemoveAt(selectedRowIndex);
+                        RefreshDataSource(true, false);
+                    }
+                    else
+                    {
+                        return;
+                    }
                 }
             }
             catch (Exception ex)
@@ -210,8 +217,23 @@ namespace Software_I___C____C968
                 if (DgvProducts.SelectedRows.Count > 0) // Ensure a row is selected
                 {
                     int selectedRowIndex = DgvProducts.SelectedRows[0].Index;
-                    inventory.products.RemoveAt(selectedRowIndex);
-                    RefreshDataSource(false, true);
+                    Product toDelete = inventory.lookupProduct(selectedRowIndex);
+                    if (toDelete.associatedParts.Count == 0)
+                    {
+                        if(MessageBox.Show("Are you sure that you want to delete this product?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            inventory.products.RemoveAt(selectedRowIndex);
+                            RefreshDataSource(false, true);
+                        }
+                        else 
+                        {
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("You cannot delete products while it still has associated parts.", "Error");
+                    }
                 }
             }
             catch (Exception ex)

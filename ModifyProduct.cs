@@ -200,17 +200,78 @@ namespace Software_I___C____C968
 
                 Product newProduct = new Product();
 
-                newProduct.productID = CheckStringNotEmpty(TbId.Text) ? Int32.Parse(TbId.Text) : selectedProduct.productID;
-                newProduct.name = CheckStringNotEmpty(TbName.Text) ? TbName.Text : selectedProduct.name;
-                newProduct.inStock = CheckStringNotEmpty(TbInventory.Text) ? Int32.Parse(TbInventory.Text) : selectedProduct.inStock;
-                newProduct.price = CheckStringNotEmpty(TbPriceCost.Text) ? Double.Parse(TbPriceCost.Text) : selectedProduct.price;
-                newProduct.min = CheckStringNotEmpty(TbMin.Text) ? Int32.Parse(TbMin.Text) : selectedProduct.min;
-                newProduct.max = CheckStringNotEmpty(TbMax.Text) ? Int32.Parse(TbMax.Text) : selectedProduct.max;
-
-                ModifyInventoryProduct(newProduct);
-                CleanUpRefs();
-                Close();
+                if(CheckTextBoxes())
+                {
+                    newProduct.productID = CheckStringNotEmpty(TbId.Text) ? Int32.Parse(TbId.Text) : selectedProduct.productID;
+                    newProduct.name = CheckStringNotEmpty(TbName.Text) ? TbName.Text : selectedProduct.name;
+                    newProduct.inStock = CheckStringNotEmpty(TbInventory.Text) ? Int32.Parse(TbInventory.Text) : selectedProduct.inStock;
+                    newProduct.price = CheckStringNotEmpty(TbPriceCost.Text) ? Double.Parse(TbPriceCost.Text) : selectedProduct.price;
+                    newProduct.min = CheckStringNotEmpty(TbMin.Text) ? Int32.Parse(TbMin.Text) : selectedProduct.min;
+                    newProduct.max = CheckStringNotEmpty(TbMax.Text) ? Int32.Parse(TbMax.Text) : selectedProduct.max;
+                    
+                    if (newProduct.min > newProduct.max)
+                    {
+                        MessageBox.Show("Min must be less than or equal to max", "error");
+                    }
+                    else
+                    {
+                        ModifyInventoryProduct(newProduct);
+                        CleanUpRefs();
+                        Close();
+                    }
+                }
             }
+        }
+
+        private bool CheckTextBoxes()
+        {
+            int a;
+            if(CheckStringNotEmpty(TbId.Text))
+            {
+                if(!Int32.TryParse(TbId.Text, out a))
+                {
+                    MessageBox.Show("ID must be a number", "Error");
+                    return false;
+                }
+            }
+
+            if (CheckStringNotEmpty(TbInventory.Text))
+            {
+                if (!Int32.TryParse(TbInventory.Text, out a))
+                {
+                    MessageBox.Show("Inventory must be a number", "Error");
+                    return false;
+                }
+            }
+
+            if (CheckStringNotEmpty(TbPriceCost.Text))
+            {
+                if (!double.TryParse(TbPriceCost.Text, out double b))
+                {
+                    MessageBox.Show("Price must be a number", "Error");
+                    return false;
+                }
+            }
+
+            if (CheckStringNotEmpty(TbMin.Text))
+            {
+                if (!Int32.TryParse(TbMin.Text, out a))
+                {
+                    MessageBox.Show("Min must be a number", "Error");
+                    return false;
+                }
+            }
+
+            if (CheckStringNotEmpty(TbMax.Text))
+            {
+                if (!Int32.TryParse(TbMax.Text, out a))
+                {
+                    MessageBox.Show("Max must be a number", "Error");
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         public bool CheckStringNotEmpty(string check)

@@ -98,21 +98,74 @@ namespace Software_I___C____C968
         private bool CheckTextBoxes()
         {
             var textBoxes = new List<TextBox>();
-            textBoxes.Add(TbId);
+            int a;
+            bool canContinue = true;
+
+            if (Int32.TryParse(TbId.Text, out a))
+            {
+                textBoxes.Add(TbId);
+            }
+            else
+            {
+                MessageBox.Show("ID must be a number", "Error");
+                return false;
+            }
+
             textBoxes.Add(TbName);
-            textBoxes.Add(TbPriceCost);
-            textBoxes.Add(TbInventory);
-            textBoxes.Add(TbMin);
-            textBoxes.Add(TbMax);
+
+            if (double.TryParse(TbPriceCost.Text, out double result))
+            {
+                textBoxes.Add(TbPriceCost);
+            }
+            else
+            {
+                MessageBox.Show("Price must be a number", "Error");
+                return false;
+            }
+
+            if (Int32.TryParse(TbInventory.Text, out a))
+            {
+                textBoxes.Add(TbInventory);
+            }
+            else
+            {
+                MessageBox.Show("Inventory must be a number", "Error");
+                return false;
+            }
+
+            if (Int32.TryParse(TbMin.Text, out a))
+            {
+                textBoxes.Add(TbMin);
+            }
+            else
+            {
+                MessageBox.Show("Min must be a number", "Error");
+                return false;
+            }
+
+            if (Int32.TryParse(TbMax.Text, out a))
+            {
+                textBoxes.Add(TbMax);
+            }
+            else
+            {
+                MessageBox.Show("Max must be a number", "Error");
+                return false;
+            }
+
+            if (Int32.Parse(TbMin.Text) > Int32.Parse(TbMax.Text))
+            {
+                MessageBox.Show("Min has to be less than or equal to Max", "Error");
+                return false;
+            }
             textBoxes.Add(TbCompanyName);
 
-            bool canContiue = true;
             foreach (TextBox textBox in textBoxes)
             {
                 if (string.IsNullOrEmpty(textBox.Text))
                 {
                     textBox.BackColor = Color.Red;
-                    canContiue = false;
+                    canContinue = false;
                 }
                 else
                 {
@@ -120,7 +173,7 @@ namespace Software_I___C____C968
                 }
             }
 
-            return canContiue;
+            return canContinue;
         }
     }
 }

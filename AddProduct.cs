@@ -185,9 +185,9 @@ namespace Software_I___C____C968
         {
             if (mainScreen == null) return;
 
-            Product newProduct = new Product();
             if (CheckTextBoxes())
             {
+                Product newProduct = new Product();
                 newProduct.associatedParts = new BindingList<Part>(associatedPartsData);
                 newProduct.productID = Int32.Parse(TbId.Text);
                 newProduct.name = TbName.Text;
@@ -195,24 +195,76 @@ namespace Software_I___C____C968
                 newProduct.price = double.Parse(TbPriceCost.Text);
                 newProduct.min = Int32.Parse(TbMin.Text);
                 newProduct.max = Int32.Parse(TbMax.Text);
+                mainScreen.inventory.addProduct(newProduct);
+                CleanUpRefs();
+                Close();
             }
 
-            mainScreen.inventory.addProduct(newProduct);
-            CleanUpRefs();
-            Close();
         }
 
         private bool CheckTextBoxes()
         {
             var textBoxes = new List<TextBox>();
-            textBoxes.Add(TbId);
-            textBoxes.Add(TbName);
-            textBoxes.Add(TbPriceCost);
-            textBoxes.Add(TbInventory);
-            textBoxes.Add(TbMin);
-            textBoxes.Add(TbMax);
-
+            int a;
             bool canContinue = true;
+
+            if(Int32.TryParse(TbId.Text, out a))
+            {
+                textBoxes.Add(TbId);
+            }
+            else
+            {
+                MessageBox.Show("ID must be a number", "Error");
+                return false;
+            }
+
+            textBoxes.Add(TbName);
+
+            if (double.TryParse(TbPriceCost.Text, out double result))
+            {
+                textBoxes.Add(TbPriceCost);
+            }
+            else
+            {
+                MessageBox.Show("Price must be a number", "Error");
+                return false;
+            }
+
+            if (Int32.TryParse(TbInventory.Text, out a))
+            {
+                textBoxes.Add(TbInventory);
+            }
+            else
+            {
+                MessageBox.Show("Inventory must be a number", "Error");
+                return false;
+            }
+
+            if (Int32.TryParse(TbMin.Text, out a))
+            {
+                textBoxes.Add(TbMin);
+            }
+            else
+            {
+                MessageBox.Show("Min must be a number", "Error");
+                return false;
+            }
+
+            if (Int32.TryParse(TbMax.Text, out a))
+            {
+                textBoxes.Add(TbMax);
+            }
+            else
+            {
+                MessageBox.Show("Max must be a number", "Error");
+                return false;
+            }
+           
+            if(Int32.Parse(TbMin.Text) > Int32.Parse(TbMax.Text))
+            {
+                MessageBox.Show("Min has to be less than or equal to Max", "Error");
+                return false;
+            }
 
             foreach (TextBox textBox in textBoxes)
             {
