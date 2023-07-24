@@ -41,6 +41,18 @@ namespace Software_I___C____C968
             DgvCandidateParts.AllowUserToAddRows = false;
             DgvPartsAssociated.AllowUserToAddRows = false;
             SetupHeaders();
+            FillProductData();
+        }
+
+        void FillProductData()
+        {
+            if (selectedProduct == null) return;
+            TbId.Text = selectedProduct.productID.ToString();
+            TbName.Text = selectedProduct.name.ToString();
+            TbInventory.Text = selectedProduct.inStock.ToString();
+            TbPriceCost.Text = selectedProduct.price.ToString();
+            TbMax.Text = selectedProduct.max.ToString();
+            TbMin.Text = selectedProduct.min.ToString();
         }
 
         private void SetupHeaders()

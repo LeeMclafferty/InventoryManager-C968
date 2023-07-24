@@ -192,6 +192,9 @@ namespace Software_I___C____C968.src
                     max = 25,
                     associatedParts = new BindingList<Part>()
                 });
+
+            products[0].associatedParts.Add(allParts[2]);
+            products[0].associatedParts.Add(allParts[1]);
         }
     }
 }

@@ -15,14 +15,35 @@ namespace Software_I___C____C968
     {
         public MainScreen? mainScreen = null;
         public ModifyPartOutsource? outsourcedForm = null;
-        public int selctedPartId = -1;
+        public Part selectedPart;
 
-        public ModifyPart(MainScreen mainForm, int partId, ModifyPartOutsource? outForm = null)
+        public ModifyPart(MainScreen mainForm, Part part, ModifyPartOutsource? outForm = null)
         {
             InitializeComponent();
             mainScreen = mainForm;
-            selctedPartId = partId;
+            selectedPart = part;
             CheckInHouse();
+            FillPartData();
+        }
+
+        void FillPartData()
+        {
+            if (selectedPart == null) return;
+
+            Part? moddedPart = selectedPart;
+            Inhouse? moddedInHouse = moddedPart as Inhouse;
+
+            TbId.Text = selectedPart.partID.ToString();
+            TbName.Text = selectedPart.name.ToString();
+            TbInventory.Text = selectedPart.inStock.ToString();
+            TbPriceCost.Text = selectedPart.price.ToString();
+            TbMax.Text = selectedPart.max.ToString();
+            TbMin.Text = selectedPart.min.ToString();
+
+            if(moddedInHouse != null) 
+            {
+                TbMachineId.Text = moddedInHouse.machineID.ToString();
+            }
         }
 
         public void CheckInHouse()
@@ -51,7 +72,7 @@ namespace Software_I___C____C968
             }
             ClearSelfRef();
             outsourcedForm = null;
-            selctedPartId = -1;
+            selectedPart.partID = -1;
         }
 
         private void ClearSelfRef()
@@ -67,7 +88,7 @@ namespace Software_I___C____C968
             if (mainScreen != null)
             {
                 Inhouse part = new Inhouse();
-                Part? moddedPart = mainScreen.inventory.lookupPart(selctedPartId);
+                Part? moddedPart = selectedPart;
                 Inhouse? moddedInHouse = moddedPart as Inhouse;
                 if(CheckTextBoxes())
                 {
@@ -163,7 +184,7 @@ namespace Software_I___C____C968
 
             if (mainScreen.inventory == null) return;
 
-            mainScreen.inventory.updatePart(selctedPartId, toAdd);
+            mainScreen.inventory.updatePart(selectedPart.partID, toAdd);
         }
 
         public bool CheckStringNotEmpty(string check)
@@ -178,7 +199,7 @@ namespace Software_I___C____C968
             if (outsourcedForm == null)
             {
                 if (mainScreen == null) return;
-                outsourcedForm = new ModifyPartOutsource(mainScreen, selctedPartId, this);
+                outsourcedForm = new ModifyPartOutsource(mainScreen, selectedPart, this);
             }
 
             outsourcedForm.CheckOutsource();

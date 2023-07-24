@@ -16,15 +16,36 @@ namespace Software_I___C____C968
 
         public ModifyPart? inHouseForm = null;
         public MainScreen? mainScreen = null;
-        int selctedPartId = -1;
+        public Part selectedPart;
 
-        public ModifyPartOutsource(MainScreen mainForm, int id, ModifyPart? inHouse = null)
+        public ModifyPartOutsource(MainScreen mainForm, Part part, ModifyPart? inHouse = null)
         {
             InitializeComponent();
             inHouseForm = inHouse;
             mainScreen = mainForm;
-            selctedPartId = id;
+            selectedPart = part;
             CheckOutsource();
+            FillPartData();
+        }
+
+        void FillPartData()
+        {
+            if (selectedPart == null) return;
+            
+            Part? moddedPart = selectedPart;
+            Outsourced? moddedOutsource = moddedPart as Outsourced;
+
+            TbId.Text = selectedPart.partID.ToString();
+            TbName.Text = selectedPart.name.ToString();
+            TbInventory.Text = selectedPart.inStock.ToString();
+            TbPriceCost.Text = selectedPart.price.ToString();
+            TbMax.Text = selectedPart.max.ToString();
+            TbMin.Text = selectedPart.min.ToString();
+
+            if(moddedOutsource != null)
+            {
+                TbCompanyName.Text = moddedOutsource.companyName.ToString();
+            }
         }
 
         public void CheckOutsource()
@@ -60,7 +81,7 @@ namespace Software_I___C____C968
             if (inHouseForm.mainScreen != null)
             {
                 Outsourced part = new Outsourced();
-                Part? moddedPart = inHouseForm.mainScreen.inventory.lookupPart(selctedPartId);
+                Part? moddedPart = selectedPart;
                 Outsourced? moddedOutsourced = moddedPart as Outsourced;
 
                 if(CheckTextBoxes())
@@ -155,7 +176,7 @@ namespace Software_I___C____C968
             if (inHouseForm == null || inHouseForm.mainScreen == null || inHouseForm.mainScreen.inventory == null) 
                 return;
 
-            inHouseForm.mainScreen.inventory.updatePart(selctedPartId, toAdd);
+            inHouseForm.mainScreen.inventory.updatePart(selectedPart.partID, toAdd);
         }
 
         private void RbInHouse_CheckedChanged(object sender, EventArgs e)
@@ -165,7 +186,7 @@ namespace Software_I___C____C968
             if (inHouseForm == null)
             {
                 if (mainScreen == null) return;
-                inHouseForm = new ModifyPart(mainScreen, selctedPartId, this);
+                inHouseForm = new ModifyPart(mainScreen, selectedPart, this);
             }
 
             inHouseForm.CheckInHouse();
