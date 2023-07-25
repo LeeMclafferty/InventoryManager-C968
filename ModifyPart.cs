@@ -72,7 +72,6 @@ namespace Software_I___C____C968
             }
             ClearSelfRef();
             outsourcedForm = null;
-            selectedPart.partID = -1;
         }
 
         private void ClearSelfRef()
