@@ -15,9 +15,9 @@ namespace Software_I___C____C968
     {
         public MainScreen? mainScreen = null;
         public ModifyPartOutsource? outsourcedForm = null;
-        public Part selectedPart;
+        public Inhouse selectedPart;
 
-        public ModifyPart(MainScreen mainForm, Part part, ModifyPartOutsource? outForm = null)
+        public ModifyPart(MainScreen mainForm, Inhouse part, ModifyPartOutsource? outForm = null)
         {
             InitializeComponent();
             mainScreen = mainForm;
@@ -40,7 +40,7 @@ namespace Software_I___C____C968
             TbMax.Text = selectedPart.max.ToString();
             TbMin.Text = selectedPart.min.ToString();
 
-            if(moddedInHouse != null) 
+            if (moddedInHouse != null)
             {
                 TbMachineId.Text = moddedInHouse.machineID.ToString();
             }
@@ -89,7 +89,7 @@ namespace Software_I___C____C968
                 Inhouse part = new Inhouse();
                 Part? moddedPart = selectedPart;
                 Inhouse? moddedInHouse = moddedPart as Inhouse;
-                if(CheckTextBoxes())
+                if (CheckTextBoxes())
                 {
                     part.partID = CheckStringNotEmpty(TbId.Text) ? Int32.Parse(TbId.Text) : moddedPart.partID;
                     part.name = CheckStringNotEmpty(TbName.Text) ? TbName.Text : moddedPart.name;
@@ -98,9 +98,9 @@ namespace Software_I___C____C968
                     part.min = CheckStringNotEmpty(TbMin.Text) ? Int32.Parse(TbMin.Text) : moddedPart.min;
                     part.max = CheckStringNotEmpty(TbMax.Text) ? Int32.Parse(TbMax.Text) : moddedPart.max;
 
-                    if(moddedInHouse != null)
-                    { 
-                        part.machineID = CheckStringNotEmpty(TbMachineId.Text) ? Int32.Parse(TbMachineId.Text) : moddedInHouse.machineID;
+                    if (moddedInHouse != null)
+                    {
+                        selectedPart.machineID = Int32.Parse(TbMachineId.Text);
                     }
 
                     if (part.min > part.max)
@@ -193,16 +193,18 @@ namespace Software_I___C____C968
 
         private void RbOutsourced_CheckedChanged(object sender, EventArgs e)
         {
-            this.Visible = false;
-
-            if (outsourcedForm == null)
-            {
-                if (mainScreen == null) return;
-                outsourcedForm = new ModifyPartOutsource(mainScreen, selectedPart, this);
-            }
-
-            outsourcedForm.CheckOutsource();
-            outsourcedForm.Show();
+            //             this.Visible = false;
+            // 
+            //             if (outsourcedForm == null)
+            //             {
+            //                 if (mainScreen == null) return;
+            //                 outsourcedForm = new ModifyPartOutsource(mainScreen, selectedPart, this);
+            //             }
+            // 
+            //             outsourcedForm.CheckOutsource();
+            //             outsourcedForm.Show
+            RbInHouse.Checked = true;
+            MessageBox.Show("You cannot edit a In-House part as outsourced.");
         }
     }
 }

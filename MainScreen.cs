@@ -102,7 +102,7 @@ namespace Software_I___C____C968
             {
                 if (selectedPart.partID > -1)
                 {
-                   modifyPartForm = new ModifyPart(this, selectedPart);
+                   modifyPartForm = new ModifyPart(this, selectedPart as Inhouse);
                 }
             }
             if(modifyPartForm != null)
@@ -121,7 +121,7 @@ namespace Software_I___C____C968
             {
                 if (selectedPart.partID > -1)
                 {
-                    modifyPartOutsourceForm = new ModifyPartOutsource(this, selectedPart);
+                    modifyPartOutsourceForm = new ModifyPartOutsource(this, selectedPart as Outsourced);
                 }
             }
             if (modifyPartOutsourceForm != null)

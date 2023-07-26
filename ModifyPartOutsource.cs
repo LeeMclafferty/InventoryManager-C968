@@ -16,9 +16,9 @@ namespace Software_I___C____C968
 
         public ModifyPart? inHouseForm = null;
         public MainScreen? mainScreen = null;
-        public Part selectedPart;
+        public Outsourced selectedPart;
 
-        public ModifyPartOutsource(MainScreen mainForm, Part part, ModifyPart? inHouse = null)
+        public ModifyPartOutsource(MainScreen mainForm, Outsourced part, ModifyPart? inHouse = null)
         {
             InitializeComponent();
             inHouseForm = inHouse;
@@ -31,7 +31,7 @@ namespace Software_I___C____C968
         void FillPartData()
         {
             if (selectedPart == null) return;
-            
+
             Part? moddedPart = selectedPart;
             Outsourced? moddedOutsource = moddedPart as Outsourced;
 
@@ -42,7 +42,7 @@ namespace Software_I___C____C968
             TbMax.Text = selectedPart.max.ToString();
             TbMin.Text = selectedPart.min.ToString();
 
-            if(moddedOutsource != null)
+            if (moddedOutsource != null)
             {
                 TbCompanyName.Text = moddedOutsource.companyName.ToString();
             }
@@ -76,54 +76,53 @@ namespace Software_I___C____C968
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            if (inHouseForm == null) return;
+            if (mainScreen == null) return;
 
-            if (inHouseForm.mainScreen != null)
+            Part? moddedPart = selectedPart;
+            Outsourced? moddedOutsourced = moddedPart as Outsourced;
+
+            if (CheckTextBoxes())
             {
-                Outsourced part = new Outsourced();
-                Part? moddedPart = selectedPart;
-                Outsourced? moddedOutsourced = moddedPart as Outsourced;
-
-                if(CheckTextBoxes())
+                if (moddedPart != null)
                 {
-                    if (moddedPart != null)
-                    {
-                        part.partID = inHouseForm.CheckStringNotEmpty(TbId.Text) ? Int32.Parse(TbId.Text) : moddedPart.partID;
-                        part.name = inHouseForm.CheckStringNotEmpty(TbName.Text) ? TbName.Text : moddedPart.name;
-                        part.inStock = inHouseForm.CheckStringNotEmpty(TbInventory.Text) ? Int32.Parse(TbInventory.Text) : moddedPart.inStock;
-                        part.price = inHouseForm.CheckStringNotEmpty(TbPriceCost.Text) ? Double.Parse(TbPriceCost.Text) : moddedPart.price;
-                        part.min = inHouseForm.CheckStringNotEmpty(TbMin.Text) ? Int32.Parse(TbMin.Text) : moddedPart.min;
-                        part.max = inHouseForm.CheckStringNotEmpty(TbMax.Text) ? Int32.Parse(TbMax.Text) : moddedPart.max;
-                    }
-
-                    if (moddedOutsourced != null)
-                    {
-                        part.companyName = inHouseForm.CheckStringNotEmpty(TbCompanyName.Text) ? TbCompanyName.Text : moddedOutsourced.companyName;
-                    }
-
-                    if (part.min > part.max)
-                    {
-                        MessageBox.Show("Min must be less than or equal to max", "error");
-                    }
-                    else
-                    {
-                        if (part != null)
-                        {
-                            ModifyInventoryPart(part);
-                            CloseWindow();
-                            Close();
-                        }
-                    }
+                    selectedPart.partID = CheckStringNotEmpty(TbId.Text) ? Int32.Parse(TbId.Text) : moddedPart.partID;
+                    selectedPart.name = CheckStringNotEmpty(TbName.Text) ? TbName.Text : moddedPart.name;
+                    selectedPart.inStock = CheckStringNotEmpty(TbInventory.Text) ? Int32.Parse(TbInventory.Text) : moddedPart.inStock;
+                    selectedPart.price = CheckStringNotEmpty(TbPriceCost.Text) ? Double.Parse(TbPriceCost.Text) : moddedPart.price;
+                    selectedPart.min = CheckStringNotEmpty(TbMin.Text) ? Int32.Parse(TbMin.Text) : moddedPart.min;
+                    selectedPart.max = CheckStringNotEmpty(TbMax.Text) ? Int32.Parse(TbMax.Text) : moddedPart.max;
                 }
+                if (selectedPart.min > selectedPart.max)
+                {
+                    MessageBox.Show("Min must be less than or equal to max", "error");
+                    return;
+                }
+
+                if (moddedOutsourced != null)
+                {
+                    selectedPart.companyName = CheckStringNotEmpty(TbCompanyName.Text) ? TbCompanyName.Text : moddedOutsourced.companyName;
+                }
+
+
+                mainScreen.RefreshDataSource();
+                ModifyInventoryPart(selectedPart);
+                CloseWindow();
+                Close();
+                
+                
             }
+        }
+
+        public bool CheckStringNotEmpty(string check)
+        {
+            return !string.IsNullOrEmpty(check);
         }
 
         private bool CheckTextBoxes()
         {
-            if (inHouseForm == null) return false;
 
             int a;
-            if (inHouseForm.CheckStringNotEmpty(TbId.Text))
+            if (CheckStringNotEmpty(TbId.Text))
             {
                 if (!Int32.TryParse(TbId.Text, out a))
                 {
@@ -132,7 +131,7 @@ namespace Software_I___C____C968
                 }
             }
 
-            if (inHouseForm.CheckStringNotEmpty(TbInventory.Text))
+            if (CheckStringNotEmpty(TbInventory.Text))
             {
                 if (!Int32.TryParse(TbInventory.Text, out a))
                 {
@@ -141,7 +140,7 @@ namespace Software_I___C____C968
                 }
             }
 
-            if (inHouseForm.CheckStringNotEmpty(TbPriceCost.Text))
+            if (CheckStringNotEmpty(TbPriceCost.Text))
             {
                 if (!double.TryParse(TbPriceCost.Text, out double b))
                 {
@@ -150,7 +149,7 @@ namespace Software_I___C____C968
                 }
             }
 
-            if (inHouseForm.CheckStringNotEmpty(TbMin.Text))
+            if (CheckStringNotEmpty(TbMin.Text))
             {
                 if (!Int32.TryParse(TbMin.Text, out a))
                 {
@@ -159,7 +158,7 @@ namespace Software_I___C____C968
                 }
             }
 
-            if (inHouseForm.CheckStringNotEmpty(TbMax.Text))
+            if (CheckStringNotEmpty(TbMax.Text))
             {
                 if (!Int32.TryParse(TbMax.Text, out a))
                 {
@@ -173,7 +172,7 @@ namespace Software_I___C____C968
 
         private void ModifyInventoryPart(Outsourced toAdd)
         {
-            if (inHouseForm == null || inHouseForm.mainScreen == null || inHouseForm.mainScreen.inventory == null) 
+            if (inHouseForm == null || inHouseForm.mainScreen == null || inHouseForm.mainScreen.inventory == null)
                 return;
 
             inHouseForm.mainScreen.inventory.updatePart(selectedPart.partID, toAdd);
@@ -181,16 +180,20 @@ namespace Software_I___C____C968
 
         private void RbInHouse_CheckedChanged(object sender, EventArgs e)
         {
-            this.Visible = false;
-
-            if (inHouseForm == null)
-            {
-                if (mainScreen == null) return;
-                inHouseForm = new ModifyPart(mainScreen, selectedPart, this);
-            }
-
-            inHouseForm.CheckInHouse();
-            inHouseForm.Show();
+            //             this.Visible = false;
+            // 
+            //             if (inHouseForm == null)
+            //             {
+            //                 if (mainScreen == null) return;
+            //                 if (selectedPart as Inhouse == null) return;
+            // 
+            //                 inHouseForm = new ModifyPart(mainScreen, selectedPart as Inhouse, this);
+            //             }
+            // 
+            //             inHouseForm.CheckInHouse();
+            //             inHouseForm.Show();
+            RbOutsourced.Checked = true;
+            MessageBox.Show("You cannot edit an Outsourced as part as in-house.", "Error");
         }
     }
 }

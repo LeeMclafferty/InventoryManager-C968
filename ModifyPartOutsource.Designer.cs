@@ -52,70 +52,63 @@
             // LblCompanyName
             // 
             LblCompanyName.AutoSize = true;
-            LblCompanyName.Location = new Point(19, 228);
-            LblCompanyName.Margin = new Padding(2, 0, 2, 0);
+            LblCompanyName.Location = new Point(27, 380);
             LblCompanyName.Name = "LblCompanyName";
-            LblCompanyName.Size = new Size(94, 15);
+            LblCompanyName.Size = new Size(141, 25);
             LblCompanyName.TabIndex = 38;
             LblCompanyName.Text = "Company Name";
             // 
             // LblMin
             // 
             LblMin.AutoSize = true;
-            LblMin.Location = new Point(223, 197);
-            LblMin.Margin = new Padding(2, 0, 2, 0);
+            LblMin.Location = new Point(319, 328);
             LblMin.Name = "LblMin";
-            LblMin.Size = new Size(28, 15);
+            LblMin.Size = new Size(42, 25);
             LblMin.TabIndex = 37;
             LblMin.Text = "Min";
             // 
             // LblMax
             // 
             LblMax.AutoSize = true;
-            LblMax.Location = new Point(86, 197);
-            LblMax.Margin = new Padding(2, 0, 2, 0);
+            LblMax.Location = new Point(123, 328);
             LblMax.Name = "LblMax";
-            LblMax.Size = new Size(30, 15);
+            LblMax.Size = new Size(45, 25);
             LblMax.TabIndex = 36;
             LblMax.Text = "Max";
             // 
             // LblPriceCost
             // 
             LblPriceCost.AutoSize = true;
-            LblPriceCost.Location = new Point(46, 165);
-            LblPriceCost.Margin = new Padding(2, 0, 2, 0);
+            LblPriceCost.Location = new Point(66, 275);
             LblPriceCost.Name = "LblPriceCost";
-            LblPriceCost.Size = new Size(68, 15);
+            LblPriceCost.Size = new Size(102, 25);
             LblPriceCost.TabIndex = 35;
             LblPriceCost.Text = "Price / Cost";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(57, 134);
-            label3.Margin = new Padding(2, 0, 2, 0);
+            label3.Location = new Point(81, 223);
             label3.Name = "label3";
-            label3.Size = new Size(57, 15);
+            label3.Size = new Size(87, 25);
             label3.TabIndex = 34;
             label3.Text = "Inventory";
             // 
             // LblName
             // 
             LblName.AutoSize = true;
-            LblName.Location = new Point(76, 102);
-            LblName.Margin = new Padding(2, 0, 2, 0);
+            LblName.Location = new Point(109, 170);
             LblName.Name = "LblName";
-            LblName.Size = new Size(39, 15);
+            LblName.Size = new Size(59, 25);
             LblName.TabIndex = 33;
             LblName.Text = "Name";
             // 
             // LblId
             // 
             LblId.AutoSize = true;
-            LblId.Location = new Point(97, 70);
-            LblId.Margin = new Padding(2, 0, 2, 0);
+            LblId.Location = new Point(139, 117);
             LblId.Name = "LblId";
-            LblId.Size = new Size(18, 15);
+            LblId.Size = new Size(30, 25);
             LblId.TabIndex = 32;
             LblId.Text = "ID";
             // 
@@ -123,67 +116,61 @@
             // 
             LblModifyPart.AutoSize = true;
             LblModifyPart.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            LblModifyPart.Location = new Point(17, 17);
-            LblModifyPart.Margin = new Padding(2, 0, 2, 0);
+            LblModifyPart.Location = new Point(24, 28);
             LblModifyPart.Name = "LblModifyPart";
-            LblModifyPart.Size = new Size(81, 19);
+            LblModifyPart.Size = new Size(114, 28);
             LblModifyPart.TabIndex = 31;
             LblModifyPart.Text = "Modify Part";
             // 
             // TbMin
             // 
-            TbMin.Location = new Point(278, 195);
-            TbMin.Margin = new Padding(2);
+            TbMin.Location = new Point(397, 325);
             TbMin.Name = "TbMin";
-            TbMin.Size = new Size(71, 23);
+            TbMin.Size = new Size(100, 31);
             TbMin.TabIndex = 30;
             // 
             // TbMax
             // 
-            TbMax.Location = new Point(127, 195);
-            TbMax.Margin = new Padding(2);
+            TbMax.Location = new Point(181, 325);
             TbMax.Name = "TbMax";
-            TbMax.Size = new Size(71, 23);
+            TbMax.Size = new Size(100, 31);
             TbMax.TabIndex = 28;
             // 
             // TbPriceCost
             // 
-            TbPriceCost.Location = new Point(128, 164);
-            TbPriceCost.Margin = new Padding(2);
+            TbPriceCost.Location = new Point(183, 273);
             TbPriceCost.Name = "TbPriceCost";
-            TbPriceCost.Size = new Size(141, 23);
+            TbPriceCost.Size = new Size(200, 31);
             TbPriceCost.TabIndex = 27;
             // 
             // TbInventory
             // 
-            TbInventory.Location = new Point(128, 132);
-            TbInventory.Margin = new Padding(2);
+            TbInventory.Location = new Point(183, 220);
             TbInventory.Name = "TbInventory";
-            TbInventory.Size = new Size(141, 23);
+            TbInventory.Size = new Size(200, 31);
             TbInventory.TabIndex = 26;
             // 
             // TbName
             // 
-            TbName.Location = new Point(128, 100);
-            TbName.Margin = new Padding(2);
+            TbName.Location = new Point(183, 167);
             TbName.Name = "TbName";
-            TbName.Size = new Size(141, 23);
+            TbName.Size = new Size(200, 31);
             TbName.TabIndex = 25;
             // 
             // TbId
             // 
-            TbId.Location = new Point(128, 68);
-            TbId.Margin = new Padding(2);
+            TbId.BackColor = SystemColors.InactiveCaption;
+            TbId.Location = new Point(183, 113);
             TbId.Name = "TbId";
-            TbId.Size = new Size(141, 23);
+            TbId.ReadOnly = true;
+            TbId.Size = new Size(200, 31);
             TbId.TabIndex = 24;
             // 
             // BtnCancel
             // 
-            BtnCancel.Location = new Point(296, 270);
-            BtnCancel.Margin = new Padding(2);
+            BtnCancel.Location = new Point(423, 450);
             BtnCancel.Name = "BtnCancel";
-            BtnCancel.Size = new Size(78, 20);
+            BtnCancel.Size = new Size(111, 33);
             BtnCancel.TabIndex = 23;
             BtnCancel.Text = "Cancel";
             BtnCancel.UseVisualStyleBackColor = true;
@@ -191,10 +178,9 @@
             // 
             // BtnSave
             // 
-            BtnSave.Location = new Point(202, 270);
-            BtnSave.Margin = new Padding(2);
+            BtnSave.Location = new Point(289, 450);
             BtnSave.Name = "BtnSave";
-            BtnSave.Size = new Size(78, 20);
+            BtnSave.Size = new Size(111, 33);
             BtnSave.TabIndex = 22;
             BtnSave.Text = "Save";
             BtnSave.UseVisualStyleBackColor = true;
@@ -204,10 +190,9 @@
             // 
             RbOutsourced.AutoSize = true;
             RbOutsourced.Checked = true;
-            RbOutsourced.Location = new Point(203, 18);
-            RbOutsourced.Margin = new Padding(2);
+            RbOutsourced.Location = new Point(290, 30);
             RbOutsourced.Name = "RbOutsourced";
-            RbOutsourced.Size = new Size(87, 19);
+            RbOutsourced.Size = new Size(130, 29);
             RbOutsourced.TabIndex = 21;
             RbOutsourced.TabStop = true;
             RbOutsourced.Text = "Outsourced";
@@ -216,10 +201,9 @@
             // RbInHouse
             // 
             RbInHouse.AutoSize = true;
-            RbInHouse.Location = new Point(111, 18);
-            RbInHouse.Margin = new Padding(2);
+            RbInHouse.Location = new Point(159, 30);
             RbInHouse.Name = "RbInHouse";
-            RbInHouse.Size = new Size(74, 19);
+            RbInHouse.Size = new Size(110, 29);
             RbInHouse.TabIndex = 20;
             RbInHouse.Text = "In-House";
             RbInHouse.UseVisualStyleBackColor = true;
@@ -227,17 +211,16 @@
             // 
             // TbCompanyName
             // 
-            TbCompanyName.Location = new Point(128, 227);
-            TbCompanyName.Margin = new Padding(2);
+            TbCompanyName.Location = new Point(183, 378);
             TbCompanyName.Name = "TbCompanyName";
-            TbCompanyName.Size = new Size(141, 23);
+            TbCompanyName.Size = new Size(200, 31);
             TbCompanyName.TabIndex = 29;
             // 
             // ModifyPartOutsource
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(391, 306);
+            ClientSize = new Size(559, 510);
             Controls.Add(LblCompanyName);
             Controls.Add(LblMin);
             Controls.Add(LblMax);
@@ -257,6 +240,7 @@
             Controls.Add(RbOutsourced);
             Controls.Add(RbInHouse);
             Controls.Add(TbCompanyName);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "ModifyPartOutsource";
             Text = "Part";
             ResumeLayout(false);

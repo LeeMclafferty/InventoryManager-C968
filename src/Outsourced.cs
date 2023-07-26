@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Software_I___C____C968.src
 {
-    internal class Outsourced : Part
+    public class Outsourced : Part
     {
         public Outsourced() 
         {
