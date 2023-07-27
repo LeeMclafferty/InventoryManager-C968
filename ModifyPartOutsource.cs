@@ -91,25 +91,28 @@ namespace Software_I___C____C968
                     selectedPart.price = CheckStringNotEmpty(TbPriceCost.Text) ? Double.Parse(TbPriceCost.Text) : moddedPart.price;
                     selectedPart.min = CheckStringNotEmpty(TbMin.Text) ? Int32.Parse(TbMin.Text) : moddedPart.min;
                     selectedPart.max = CheckStringNotEmpty(TbMax.Text) ? Int32.Parse(TbMax.Text) : moddedPart.max;
-                }
-                if (selectedPart.min > selectedPart.max)
-                {
-                    MessageBox.Show("Min must be less than or equal to max", "error");
-                    return;
-                }
+                    
+                    if (moddedOutsourced != null)
+                    {
+                        selectedPart.companyName = CheckStringNotEmpty(TbCompanyName.Text) ? TbCompanyName.Text : moddedOutsourced.companyName;
+                    }
+                    
+                    if (moddedPart.min > selectedPart.max)
+                    {
+                        MessageBox.Show("Min must be less than or equal to max", "error");
+                        return;
+                    }
+                    else if (moddedPart.min > selectedPart.inStock || selectedPart.max < selectedPart.inStock)
+                    {
+                        MessageBox.Show("Your inventory has to be between min and max values.", "error");
+                        return;
+                    }
 
-                if (moddedOutsourced != null)
-                {
-                    selectedPart.companyName = CheckStringNotEmpty(TbCompanyName.Text) ? TbCompanyName.Text : moddedOutsourced.companyName;
+                    mainScreen.RefreshDataSource();
+                    ModifyInventoryPart(selectedPart);
+                    CloseWindow();
+                    Close();
                 }
-
-
-                mainScreen.RefreshDataSource();
-                ModifyInventoryPart(selectedPart);
-                CloseWindow();
-                Close();
-                
-                
             }
         }
 

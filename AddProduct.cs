@@ -265,6 +265,11 @@ namespace Software_I___C____C968
                 MessageBox.Show("Min has to be less than or equal to Max", "Error");
                 return false;
             }
+            else if (Int32.Parse(TbMin.Text) > Int32.Parse(TbInventory.Text) || Int32.Parse(TbMax.Text) < Int32.Parse(TbInventory.Text))
+            {
+                MessageBox.Show("Your inventory has to be between min and max values.", "error");
+                return false;
+            }
 
             foreach (TextBox textBox in textBoxes)
             {

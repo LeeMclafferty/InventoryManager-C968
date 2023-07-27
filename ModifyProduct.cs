@@ -30,7 +30,7 @@ namespace Software_I___C____C968
 
             candidatePartsData = new BindingList<Part>(mainScreen.inventory.allParts);
 
-            if(selectedProduct != null)
+            if (selectedProduct != null)
             {
                 associatedPartsData = new BindingList<Part>(selectedProduct.associatedParts);
             }
@@ -212,7 +212,7 @@ namespace Software_I___C____C968
 
                 Product newProduct = new Product();
 
-                if(CheckTextBoxes())
+                if (CheckTextBoxes())
                 {
                     newProduct.productID = CheckStringNotEmpty(TbId.Text) ? Int32.Parse(TbId.Text) : selectedProduct.productID;
                     newProduct.name = CheckStringNotEmpty(TbName.Text) ? TbName.Text : selectedProduct.name;
@@ -220,10 +220,14 @@ namespace Software_I___C____C968
                     newProduct.price = CheckStringNotEmpty(TbPriceCost.Text) ? Double.Parse(TbPriceCost.Text) : selectedProduct.price;
                     newProduct.min = CheckStringNotEmpty(TbMin.Text) ? Int32.Parse(TbMin.Text) : selectedProduct.min;
                     newProduct.max = CheckStringNotEmpty(TbMax.Text) ? Int32.Parse(TbMax.Text) : selectedProduct.max;
-                    
+
                     if (newProduct.min > newProduct.max)
                     {
                         MessageBox.Show("Min must be less than or equal to max", "error");
+                    }
+                    else if (newProduct.min > newProduct.inStock || newProduct.max < newProduct.inStock)
+                    {
+                        MessageBox.Show("Your inventory has to be between min and max values.", "error");
                     }
                     else
                     {
@@ -238,9 +242,9 @@ namespace Software_I___C____C968
         private bool CheckTextBoxes()
         {
             int a;
-            if(CheckStringNotEmpty(TbId.Text))
+            if (CheckStringNotEmpty(TbId.Text))
             {
-                if(!Int32.TryParse(TbId.Text, out a))
+                if (!Int32.TryParse(TbId.Text, out a))
                 {
                     MessageBox.Show("ID must be a number", "Error");
                     return false;
@@ -300,5 +304,9 @@ namespace Software_I___C____C968
             mainScreen.inventory.updateProduct(selectedProduct.productID, toAdd);
         }
 
+        private void TbInventory_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

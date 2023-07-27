@@ -164,6 +164,7 @@
             TbInventory.Name = "TbInventory";
             TbInventory.Size = new Size(200, 31);
             TbInventory.TabIndex = 44;
+            TbInventory.TextChanged += TbInventory_TextChanged;
             // 
             // TbName
             // 
@@ -174,8 +175,10 @@
             // 
             // TbId
             // 
+            TbId.BackColor = SystemColors.InactiveCaption;
             TbId.Location = new Point(126, 215);
             TbId.Name = "TbId";
+            TbId.ReadOnly = true;
             TbId.Size = new Size(200, 31);
             TbId.TabIndex = 42;
             // 

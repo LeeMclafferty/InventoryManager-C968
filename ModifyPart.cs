@@ -106,6 +106,12 @@ namespace Software_I___C____C968
                     if (part.min > part.max)
                     {
                         MessageBox.Show("Min must be less than or equal to max", "error");
+                        return;
+                    }
+                    else if (part.min > part.inStock || part.max < part.inStock)
+                    {
+                        MessageBox.Show("Your inventory has to be between min and max values.", "error");
+                        return;
                     }
                     else
                     {
